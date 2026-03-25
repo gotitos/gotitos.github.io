@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Digital Gallery | Photography Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "on-secondary-container": "#6f6257",
+              "surface-dim": "#dcd9d9",
+              "primary-fixed": "#dce1ff",
+              "secondary-container": "#f1dfd2",
+              "secondary-fixed": "#f1dfd2",
+              "surface-container-highest": "#e5e2e1",
+              "tertiary-container": "#896036",
+              "on-tertiary-fixed-variant": "#623f18",
+              "error": "#ba1a1a",
+              "primary-fixed-dim": "#b6c4ff",
+              "surface": "#fcf9f8",
+              "on-secondary-fixed-variant": "#50453b",
+              "on-primary-fixed": "#001550",
+              "surface-container-lowest": "#ffffff",
+              "inverse-surface": "#313030",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#f6f3f2",
+              "primary": "#0043c8",
+              "on-tertiary-fixed": "#2c1600",
+              "on-primary": "#ffffff",
+              "on-tertiary-container": "#ffe4cd",
+              "surface-container-high": "#eae7e7",
+              "inverse-primary": "#b6c4ff",
+              "surface-container": "#f0eded",
+              "on-background": "#1c1b1b",
+              "inverse-on-surface": "#f3f0ef",
+              "secondary-fixed-dim": "#d4c4b7",
+              "on-secondary": "#ffffff",
+              "outline-variant": "#c3c5d9",
+              "on-surface-variant": "#434656",
+              "primary-container": "#0057ff",
+              "background": "#fcf9f8",
+              "tertiary-fixed": "#ffdcbd",
+              "surface-variant": "#e5e2e1",
+              "on-primary-fixed-variant": "#003ab2",
+              "on-secondary-fixed": "#221a12",
+              "outline": "#737688",
+              "tertiary-fixed-dim": "#f0bd8b",
+              "tertiary": "#6d4921",
+              "on-primary-container": "#e5e8ff",
+              "on-surface": "#1c1b1b",
+              "on-error-container": "#93000a",
+              "surface-tint": "#004ee7",
+              "secondary": "#685c52",
+              "surface-bright": "#fcf9f8",
+              "on-error": "#ffffff"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        .font-serif { font-family: 'Newsreader', serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-secondary-container selection:text-on-secondary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#fcf9f8]/80 backdrop-blur-md no-border transition-colors duration-300">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-serif italic text-xl text-[#1c1b1b]">The Digital Gallery</div>
+<!-- Desktop Navigation -->
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-[#1c1b1b] opacity-70 hover:opacity-100 font-sans Inter tracking-tight hover:bg-[#f6f3f2] transition-all px-3 py-1 rounded" href="csPage.html">SWE Portfolio</a>
+<a class="text-[#0043c8] font-bold border-b-2 border-[#0043c8] pb-1 font-sans Inter tracking-tight" href="photoPage.html">Photography Portfolio</a>
+<a class="text-[#1c1b1b] opacity-70 hover:opacity-100 font-sans Inter tracking-tight hover:bg-[#f6f3f2] transition-all px-3 py-1 rounded" href="resumePagee.html">Resume</a>
+</div>
+<div class="flex items-center space-x-4">
+<button class="p-2 hover:bg-[#f6f3f2] rounded-full transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined text-[#1c1b1b]">mail</span>
+</button>
+<img alt="Creator Profile Avatar" class="w-10 h-10 rounded-full object-cover" data-alt="Close up portrait of a professional male photographer with soft natural light and a neutral studio background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAc1_owZC7oNPiKttc0oyhwm2iBdeLEEfLAv5xV2ScPvd-_O2GIH9C2eOg3kbrxRSZurBzthyhhjDJYu9kr43ywUhaz5OVFqg4srv6WAqQjQv4adlHys0sZ3UFrysIHHoUSd9PN_pqqs52PxCcRgUDNc55s0yr-qcl-kh0mUQsttOcAmni-I3m9K7dFDX25-2_ZZPJkT8nl1kNxduVdGfqDkHWTM2rUSN8Djfwy4cnF0PreEiOcOByON3LcVObHel1ZCEWxSb3Y5ms1"/>
+</div>
+</div>
+</nav>
+<main class="pt-24">
+<!-- Hero Section: The Artist -->
+<section class="px-8 max-w-screen-2xl mx-auto mb-20 md:mb-32">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-end">
+<div class="md:col-span-12 text-center flex flex-col items-center">
+<h1 class="font-serif text-6xl md:text-8xl leading-tight tracking-tight mb-8">
+                        Light, <br/><span class="italic text-tertiary">Texture</span> &amp; Time.
+                    </h1>
+<p class="font-body text-xl text-on-surface-variant max-w-xl leading-relaxed mx-auto">
+                        Capturing the intersection of architectural precision and the fleeting moments of human experience. A digital monograph of visual narratives.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Photo Gallery: Curated Series -->
+<section class="mb-32">
+<div class="px-8 max-w-screen-2xl mx-auto mb-12 flex flex-col md:flex-row md:items-baseline justify-between gap-4">
+<h2 class="font-serif text-4xl">Selected Series</h2>
+<div class="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
+<span class="px-4 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed text-sm font-medium whitespace-nowrap">All Works</span>
+<span class="px-4 py-1 rounded-full border border-outline-variant/30 text-on-surface-variant text-sm font-medium hover:bg-surface-container-low transition-colors cursor-pointer whitespace-nowrap">Street Monoliths</span>
+<span class="px-4 py-1 rounded-full border border-outline-variant/30 text-on-surface-variant text-sm font-medium hover:bg-surface-container-low transition-colors cursor-pointer whitespace-nowrap">Organic Portraits</span>
+<span class="px-4 py-1 rounded-full border border-outline-variant/30 text-on-surface-variant text-sm font-medium hover:bg-surface-container-low transition-colors cursor-pointer whitespace-nowrap">Minimal Scapes</span>
+</div>
+</div>
+<!-- Bento-style Gallery Grid -->
+<div class="px-4 md:px-8 grid grid-cols-1 md:grid-cols-4 gap-4 max-w-screen-2xl mx-auto">
+<div class="md:col-span-2 md:row-span-2 group relative overflow-hidden rounded-lg bg-surface-container-low">
+<img alt="Street Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Minimalist architecture photo of a brutalist concrete building against a clear deep blue sky with sharp geometric shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyW2WhQYawsHd30pvyN5BGdgBbueF1np18oofgpjUchVMa8GBpxQwd8YpeZal7krOT4-FSwwncuvwcUGzZHNFheyVUFagStzUCzpf7R8Xq3St8nmIg_Hk3rNxlHsSbbtWzQATB5vDV0TvIg78UikVVikIsHCA4h7Je3r45c5tKzTUxmhHkE6KgC7I5vOeLFkJDEZhVaf6Xff8pud6-MqPnhSOp2Dur_P53thc4gnK_4cBmPH_spdKeSFVgHDkkHuWoEdGrH2yLtrBw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-8">
+<p class="text-white font-serif text-2xl">Concrete Silence</p>
+<p class="text-white/70 text-sm font-body">Berlin, 2023</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg aspect-square bg-surface-container-low">
+<img alt="Portrait Photography" class="w-full h-full object-cover grayscale transition-transform duration-500 group-hover:scale-105" data-alt="Moody editorial portrait of a woman in soft golden hour light, focus on textures of skin and delicate fabric" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7VlJLuyKOfBlSFIx4Sq-Tck2hmCWg3pMBimMWNdZWtbtL_jgzWaxWFoifp3sKSiJ4aKS162hsfLH4ZIfmuQs3_GFPXVNC7VD-0LJf6BK6YWJb5JYMUPgik11KPOndVUg8lF1VVkh_WD2tU6pH_aDzAfe9oUpm6gVjT_Q-VmMKVIDkB1olGuaTciRwSretb8OFi-8b64r5bsTo45YC4X4zE5RfYwRHPidYW1nyGLLKUsnC1ehPU67sWAzRwm9i2mxjO6qDmLAHOyOA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="text-white font-serif text-lg">Aria</p>
+<p class="text-white/70 text-xs font-body">Studio Session</p>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-lg aspect-square bg-surface-container-low">
+<img alt="Landscape Photography" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Wide landscape of misty mountains at dawn, soft purple and blue hues with a lone pine tree in the foreground" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFz_7ye1iM8Et-QnLreD909lyQEYdQdJjSNOQ00a8cCsXY1GfK0rE39N1rcbC_KklqoawbtevJwaOT7d84yjZQHyTeqSBx00wcDKaixTslW-NYX7UpkQekqauPHrSDx3Q-uIXf6JYT2LHmrPe1L_INAmUZSu1Stf3WfmVHEWX91ohKenqO3LY6jykdST501wdR7l0vEVxXMsqHwY38oB7RXJtdTYyIiLx7A18S9vrOOkLM1eqiYVV1Fv8T2LnqVIglI_kXoBmLISp-"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-4">
+<p class="text-white font-serif text-lg">Mist Peaks</p>
+<p class="text-white/70 text-xs font-body">Northern Alps</p>
+</div>
+</div>
+<div class="md:col-span-2 group relative overflow-hidden rounded-lg aspect-video bg-surface-container-low">
+<img alt="Atmospheric Landscape" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Dreamy forest scene with heavy fog, sunlight piercing through tall trees creating dramatic light rays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWEbbUJQRowup4iQPtsrkYcilcVyMu2PwZmzYk5x0hd5Jvkn-fo9cOaXYqKmvLVQ6g5uYdJB4KDXcPUN1M-IbCeIg9aeQwy6XgqW-lCMJ5C-OabK1D38c1o6fofDYT7sHvxcf6RhJdZ07dDKA1oJvYlU4Q5tX6LM797jsaZiRQw-V9g_VAi5QOUBjbA_L2CWbPBiy82JDpm_lPwbX3P6TKBMut_7MvcYmcBdNCVsxyTz4yWxbLMjPXAlV2ge32dIy6g2Nx57w5mBDg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+<p class="text-white font-serif text-xl">The Inner Woods</p>
+<p class="text-white/70 text-sm font-body">Pacific Northwest</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Creative Resume: Visual Timeline -->
+<section class="bg-surface-container-low py-32">
+<div class="px-8 max-w-screen-xl mx-auto">
+<div class="text-center mb-24">
+<h2 class="font-serif text-5xl mb-4">Journey of the Lens</h2>
+<p class="text-tertiary font-body italic tracking-widest uppercase text-sm">Awards &amp; Milestones</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-24 relative">
+<!-- Left: Timeline -->
+<div class="space-y-16">
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-tertiary"></div>
+<span class="text-tertiary font-serif italic text-xl">2023</span>
+<h3 class="font-serif text-2xl mt-2">LensCulture Street Award</h3>
+<p class="text-on-surface-variant mt-2 font-body leading-relaxed">
+                                First Prize for the 'Monolith' series exploring post-war architecture in Eastern Europe.
+                            </p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-tertiary font-serif italic text-xl">2021</span>
+<h3 class="font-serif text-2xl mt-2">National Geographic Publication</h3>
+<p class="text-on-surface-variant mt-2 font-body leading-relaxed">
+                                Lead photographer for the 'Urban Resilience' digital feature, documenting Tokyo's nightlife.
+                            </p>
+</div>
+<div class="relative pl-8 border-l border-outline-variant">
+<div class="absolute -left-[5px] top-0 w-2 h-2 rounded-full bg-outline"></div>
+<span class="text-tertiary font-serif italic text-xl">2019</span>
+<h3 class="font-serif text-2xl mt-2">Solo Exhibition: "Ghost Frames"</h3>
+<p class="text-on-surface-variant mt-2 font-body leading-relaxed">
+                                Debut exhibition at The Aperture Gallery, London. A collection of long-exposure street scenes.
+                            </p>
+</div>
+</div>
+<!-- Right: Skills & Hardware -->
+<div class="bg-surface-container-lowest p-12 rounded-xl shadow-sm border border-outline-variant/10">
+<h4 class="font-serif text-3xl mb-8">Technical Proficiency</h4>
+<div class="space-y-8">
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body font-medium">Analog Development</span>
+<span class="font-serif italic">85%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full">
+<div class="bg-tertiary h-1 rounded-full w-[85%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body font-medium">Digital Retouching</span>
+<span class="font-serif italic">95%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full">
+<div class="bg-tertiary h-1 rounded-full w-[95%]"></div>
+</div>
+</div>
+<div>
+<div class="flex justify-between mb-2">
+<span class="font-body font-medium">Lighting &amp; Composition</span>
+<span class="font-serif italic">90%</span>
+</div>
+<div class="w-full bg-surface-container-high h-1 rounded-full">
+<div class="bg-tertiary h-1 rounded-full w-[90%]"></div>
+</div>
+</div>
+</div>
+<div class="mt-12 pt-12 border-t border-outline-variant/30">
+<p class="text-sm font-label uppercase tracking-widest text-on-surface-variant mb-4">Gear Box</p>
+<div class="flex flex-wrap gap-3">
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full">Leica M10-R</span>
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full">Summilux 35mm f/1.4</span>
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full">Sony A7R V</span>
+<span class="px-3 py-1 bg-surface-container text-xs rounded-full">Hasselblad 500C</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-32 px-8">
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div>
+<h2 class="font-serif text-5xl mb-6">Let's create <br/><span class="italic">something lasting.</span></h2>
+<p class="font-body text-on-surface-variant text-lg mb-10 max-w-md">
+                        Available for select editorial assignments, fine art commissions, and licensing inquiries.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">location_on</span>
+<span class="font-body">Based in London, UK / Global</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">alternate_email</span>
+<span class="font-body">hello@digitalgallery.com</span>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-tertiary">photo_camera</span>
+<span class="font-body">@curated_architect</span>
+</div>
+</div>
+</div>
+<form class="space-y-6 bg-surface p-8 md:p-0">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-medium uppercase tracking-wider opacity-60">Your Name</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 px-0" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium uppercase tracking-wider opacity-60">Email Address</label>
+<input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 px-0" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium uppercase tracking-wider opacity-60">Inquiry Type</label>
+<select class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 px-0">
+<option>Editorial Project</option>
+<option>Print Purchase</option>
+<option>Commercial Commission</option>
+<option>Just to Say Hi</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-medium uppercase tracking-wider opacity-60">Project Details</label>
+<textarea class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary transition-colors py-3 px-0 resize-none" rows="4"></textarea>
+</div>
+<button class="w-full md:w-auto px-12 py-4 bg-primary text-on-primary rounded-full font-label font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-all active:scale-95">
+                        Send Inquiry
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#f6f3f2] dark:bg-[#141414] w-full mt-20 tonal shift bg-[#f6f3f2]">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16 w-full max-w-7xl mx-auto">
+<div class="flex flex-col gap-4">
+<span class="font-serif text-[#1c1b1b] text-lg">The Curated Architect</span>
+<p class="font-sans Inter text-sm text-[#1c1b1b]/60 leading-relaxed">
+                    © 2024 The Curated Architect. Built with logic and light.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-serif text-[#6d4921] text-lg">Connections</h4>
+<div class="flex flex-wrap gap-6">
+<a class="font-sans Inter text-sm text-[#1c1b1b]/60 hover:text-[#0043c8] underline underline-offset-4 transition-all" href="#">GitHub</a>
+<a class="font-sans Inter text-sm text-[#1c1b1b]/60 hover:text-[#0043c8] underline underline-offset-4 transition-all" href="#">LinkedIn</a>
+<a class="font-sans Inter text-sm text-[#1c1b1b]/60 hover:text-[#0043c8] underline underline-offset-4 transition-all" href="#">Instagram</a>
+<a class="font-sans Inter text-sm text-[#1c1b1b]/60 hover:text-[#0043c8] underline underline-offset-4 transition-all" href="#">Contact</a>
+</div>
+</div>
+<div class="flex flex-col gap-4 items-start md:items-end">
+<h4 class="font-serif text-[#6d4921] text-lg">Newsletter</h4>
+<div class="flex w-full max-w-xs">
+<input class="flex-1 bg-surface-container-lowest border-0 border-b border-outline text-sm px-2 focus:ring-0" placeholder="Email" type="email"/>
+<button class="p-2 text-tertiary">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
