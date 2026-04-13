@@ -79,6 +79,15 @@
             background: rgba(252, 249, 248, 0.8);
             backdrop-filter: blur(20px);
         }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 24s linear infinite;
+            width: max-content;
+        }
+        .animate-marquee:hover { animation-play-state: paused; }
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-fixed selection:text-on-primary-fixed">
@@ -92,9 +101,6 @@
 <a class="text-[#1c1b1b] dark:text-[#fcf9f8] opacity-70 hover:opacity-100 hover:bg-[#f6f3f2] dark:hover:bg-[#2d2c2c] transition-all px-2 py-1 rounded" href="photoPage.html">Photography Portfolio</a>
 <a class="text-[#1c1b1b] dark:text-[#fcf9f8] opacity-70 hover:opacity-100 hover:bg-[#f6f3f2] dark:hover:bg-[#2d2c2c] transition-all px-2 py-1 rounded" href="resumePagee.html">Resume</a>
 </div>
-<div class="flex items-center space-x-4">
-<a href="mailto:goopadhayaya2@gmail.com" class="material-symbols-outlined p-2 hover:bg-[#f6f3f2] dark:hover:bg-[#2d2c2c] rounded-full transition-all text-[#1c1b1b] dark:text-[#fcf9f8]">mail</a>
-</div>
 </div>
 </nav>
 <main class="pt-32 pb-20 px-6 md:px-12 max-w-7xl mx-auto">
@@ -102,16 +108,16 @@
 <header class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
 <div class="lg:col-span-7">
 <h1 class="font-headline text-5xl md:text-7xl text-on-surface leading-tight mb-6">
-                    Building <span class="italic text-primary">AI-Powered</span> Apps with Purpose.
+                    <span class="italic text-primary">About Me</span>
                 </h1>
 <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-8">
-                    Full-stack developer and team lead with experience building AI-powered applications using computer vision, voice recognition, and ML classification. CS senior at CSULB graduating May 2026.
+                    Full-stack developer and team leader with experience building AI-powered applications. Computer Science senior at CSULB, graduating May 2026.
                 </p>
 <div class="flex flex-wrap gap-4">
 <a href="#projects" class="bg-primary text-on-primary px-8 py-3 rounded-full font-medium flex items-center gap-2 hover:opacity-90 transition-all scale-95 duration-200">
                         View Projects <span class="material-symbols-outlined">arrow_downward</span>
 </a>
-<a href="mailto:goopadhayaya2@gmail.com" class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-full font-medium hover:bg-surface-container-high transition-all">
+<a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank" class="bg-secondary-container text-on-secondary-container px-8 py-3 rounded-full font-medium hover:bg-surface-container-high transition-all">
                         Get in Touch
                     </a>
 </div>
@@ -126,60 +132,39 @@
 </div>
 </div>
 </header>
-<!-- Tech Stack Bento Grid -->
-<section class="mb-32">
+<!-- Tech Stack Marquee -->
+<section class="mb-32 overflow-hidden">
 <div class="mb-12">
-<span class="text-primary font-label uppercase tracking-widest text-xs font-bold">Capabilities</span>
-<h2 class="font-headline text-4xl mt-2">Technical Foundations</h2>
+<h2 class="font-headline text-4xl">Technical Foundations</h2>
 </div>
-<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">terminal</span>
-</div>
-<span class="font-medium text-on-surface">Python</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">data_object</span>
-</div>
-<span class="font-medium text-on-surface">React / TS</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">code</span>
-</div>
-<span class="font-medium text-on-surface">JavaScript</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">api</span>
-</div>
-<span class="font-medium text-on-surface">Node.js</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">database</span>
-</div>
-<span class="font-medium text-on-surface">Supabase</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">smart_toy</span>
-</div>
-<span class="font-medium text-on-surface">Gemini API</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">construction</span>
-</div>
-<span class="font-medium text-on-surface">Flask</span>
-</div>
-<div class="bg-surface-container-low p-6 rounded-xl hover:bg-surface-container-high transition-colors group">
-<div class="w-12 h-12 mb-4 flex items-center justify-center bg-surface-container-lowest rounded-lg group-hover:scale-110 transition-transform">
-<span class="material-symbols-outlined text-primary">storage</span>
-</div>
-<span class="font-medium text-on-surface">SQL / C++</span>
+<div class="relative">
+<div class="flex gap-4 animate-marquee">
+<!-- Set 1 -->
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">terminal</span><span class="font-medium text-on-surface whitespace-nowrap">Python</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">data_object</span><span class="font-medium text-on-surface whitespace-nowrap">React / TypeScript</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">code</span><span class="font-medium text-on-surface whitespace-nowrap">JavaScript</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">api</span><span class="font-medium text-on-surface whitespace-nowrap">Node.js</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">database</span><span class="font-medium text-on-surface whitespace-nowrap">Supabase</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">smart_toy</span><span class="font-medium text-on-surface whitespace-nowrap">Gemini AI</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">construction</span><span class="font-medium text-on-surface whitespace-nowrap">Flask</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">storage</span><span class="font-medium text-on-surface whitespace-nowrap">SQL</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">memory</span><span class="font-medium text-on-surface whitespace-nowrap">C++</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">hub</span><span class="font-medium text-on-surface whitespace-nowrap">MLKit</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">html</span><span class="font-medium text-on-surface whitespace-nowrap">HTML &amp; CSS</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">fork_right</span><span class="font-medium text-on-surface whitespace-nowrap">GitHub</span></div>
+<!-- Set 2 (duplicate for seamless loop) -->
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">terminal</span><span class="font-medium text-on-surface whitespace-nowrap">Python</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">data_object</span><span class="font-medium text-on-surface whitespace-nowrap">React / TypeScript</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">code</span><span class="font-medium text-on-surface whitespace-nowrap">JavaScript</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">api</span><span class="font-medium text-on-surface whitespace-nowrap">Node.js</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">database</span><span class="font-medium text-on-surface whitespace-nowrap">Supabase</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">smart_toy</span><span class="font-medium text-on-surface whitespace-nowrap">Gemini AI</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">construction</span><span class="font-medium text-on-surface whitespace-nowrap">Flask</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">storage</span><span class="font-medium text-on-surface whitespace-nowrap">SQL</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">memory</span><span class="font-medium text-on-surface whitespace-nowrap">C++</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">hub</span><span class="font-medium text-on-surface whitespace-nowrap">MLKit</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">html</span><span class="font-medium text-on-surface whitespace-nowrap">HTML &amp; CSS</span></div>
+<div class="bg-surface-container-low px-6 py-4 rounded-xl flex items-center gap-3 shrink-0 hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-primary">fork_right</span><span class="font-medium text-on-surface whitespace-nowrap">GitHub</span></div>
 </div>
 </div>
 </section>
@@ -187,8 +172,7 @@
 <section class="mb-32" id="projects">
 <div class="flex justify-between items-end mb-12">
 <div>
-<span class="text-primary font-label uppercase tracking-widest text-xs font-bold">Work Samples</span>
-<h2 class="font-headline text-4xl mt-2">Selected Projects</h2>
+<h2 class="font-headline text-4xl">Selected Projects</h2>
 </div>
 <a class="text-primary font-medium hover:underline flex items-center gap-1" href="https://github.com/gotitos" target="_blank">
                     GitHub <span class="material-symbols-outlined text-sm">open_in_new</span>
@@ -268,25 +252,28 @@
 </div>
 </div>
 
-<!-- Auto Price Checker -->
+<!-- this2them -->
 <div class="group cursor-pointer">
 <div class="aspect-video bg-surface-container overflow-hidden rounded-xl mb-6 relative flex items-center justify-center">
   <div class="text-center p-8">
-    <span class="material-symbols-outlined text-primary text-6xl">directions_car</span>
-    <p class="font-headline text-xl text-on-surface mt-3">Auto Price Checker</p>
+    <span class="material-symbols-outlined text-primary text-6xl">movie</span>
+    <p class="font-headline text-xl text-on-surface mt-3">this2them</p>
   </div>
   <div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
 </div>
 <div class="px-2">
 <div class="flex gap-2 mb-3 flex-wrap">
-<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">React</span>
-<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">MongoDB</span>
-<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">Google Maps API</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">HTML</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">CSS</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">JavaScript</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">TMDB</span>
+<span class="bg-surface-container-high text-on-surface-variant text-[10px] font-bold tracking-widest uppercase px-2 py-1 rounded">Netlify</span>
 </div>
-<h3 class="font-headline text-2xl mb-2 group-hover:text-primary transition-colors">Auto Price Checker</h3>
-<p class="text-on-surface-variant mb-6 line-clamp-3">React-based app using MongoDB to store car information. Integrates Google Maps API to show nearby dealers, supports custom searching by user preferences, and stores user and car data with full front-end UI.</p>
+<h3 class="font-headline text-2xl mb-2 group-hover:text-primary transition-colors">this2them</h3>
+<p class="text-on-surface-variant mb-6 line-clamp-3">A movie recommendation game built with vanilla HTML, CSS, and JavaScript using the TMDB API. Deployed on Netlify.</p>
 <div class="flex items-center gap-6">
-<a class="flex items-center gap-2 text-sm font-bold border-b border-on-surface pb-1" href="https://github.com/gotitos" target="_blank">Github Repository</a>
+<a class="flex items-center gap-2 text-sm font-bold border-b border-on-surface pb-1" href="https://github.com/gotitos/this2them" target="_blank">Github Repository</a>
+<a class="flex items-center gap-2 text-sm font-bold border-b border-on-surface pb-1" href="https://this2them.netlify.app/" target="_blank">Live Demo</a>
 </div>
 </div>
 </div>
@@ -336,44 +323,6 @@
 </div>
 </div>
 </section>
-<!-- Contact Section -->
-<section class="max-w-4xl mx-auto text-center" id="contact">
-<h2 class="font-headline text-5xl mb-8">Let's Start a Conversation.</h2>
-<p class="text-on-surface-variant text-xl mb-12">Available for internships, contract projects, or full-time SWE opportunities.</p>
-<div class="bg-surface-container-lowest p-8 md:p-12 rounded-3xl shadow-sm border border-outline-variant/10 text-left">
-<form action="#" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="font-label text-sm font-bold text-on-surface-variant ml-1">Name</label>
-<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-4 py-3 transition-all" placeholder="John Doe" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="font-label text-sm font-bold text-on-surface-variant ml-1">Email</label>
-<input class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-4 py-3 transition-all" placeholder="john@example.com" type="email"/>
-</div>
-<div class="md:col-span-2 space-y-2">
-<label class="font-label text-sm font-bold text-on-surface-variant ml-1">Message</label>
-<textarea class="w-full bg-surface-container-low border-0 border-b-2 border-outline-variant focus:ring-0 focus:border-primary px-4 py-3 transition-all" placeholder="Briefly describe your project or inquiry..." rows="4"></textarea>
-</div>
-<div class="md:col-span-2 pt-4">
-<button class="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg hover:opacity-95 transition-opacity" type="submit">Send Inquiry</button>
-</div>
-</form>
-</div>
-<div class="mt-12 flex justify-center gap-8 flex-wrap">
-<a class="flex items-center gap-2 text-on-surface font-medium hover:text-primary" href="mailto:goopadhayaya2@gmail.com">
-<span class="material-symbols-outlined">alternate_email</span>
-                    goopadhayaya2@gmail.com
-                </a>
-<a class="flex items-center gap-2 text-on-surface font-medium hover:text-primary" href="tel:5625839161">
-<span class="material-symbols-outlined">phone</span>
-                    (562) 583-9161
-                </a>
-<a class="flex items-center gap-2 text-on-surface font-medium hover:text-primary" href="https://github.com/gotitos" target="_blank">
-<span class="material-symbols-outlined">code</span>
-                    GitHub: gotitos
-                </a>
-</div>
-</section>
 </main>
 <!-- Footer -->
 <footer class="w-full mt-20 bg-[#f6f3f2] dark:bg-[#141414]">
@@ -395,7 +344,7 @@
 <div class="flex flex-wrap gap-4">
 <a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#0043c8] dark:hover:text-[#0057ff] text-sm underline-offset-4 underline" href="https://github.com/gotitos" target="_blank">GitHub</a>
 <a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#0043c8] dark:hover:text-[#0057ff] text-sm underline-offset-4 underline" href="https://linkedin.com/in/gotit-o" target="_blank">LinkedIn</a>
-<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#0043c8] dark:hover:text-[#0057ff] text-sm underline-offset-4 underline" href="mailto:goopadhayaya2@gmail.com">Email</a>
+<a class="text-[#1c1b1b]/60 dark:text-[#fcf9f8]/60 hover:text-[#0043c8] dark:hover:text-[#0057ff] text-sm underline-offset-4 underline" href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank">LinkedIn</a>
 </div>
 </div>
 </div>
