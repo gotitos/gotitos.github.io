@@ -3,220 +3,280 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>From My Eyes — Photography by Gotit Oopadhayaya</title>
-<meta property="og:title" content="From My Eyes — Photography by Gotit Oopadhayaya"/>
-<meta property="og:description" content="Architecture and urban landscapes captured across Japan and New York City."/>
-<meta property="og:image" content="https://gotitos.github.io/_GOT0989.jpeg"/>
-<meta property="og:url" content="https://gotitos.github.io/photoPage.html"/>
+<title>Gotit Oopadhayaya — SWE Portfolio</title>
+<meta property="og:title" content="Gotit Oopadhayaya — SWE Portfolio"/>
+<meta property="og:description" content="Full-stack developer and team lead building AI-powered applications. CS senior at CSULB graduating May 2026."/>
+<meta property="og:image" content="https://gotitos.github.io/picture.png"/>
+<meta property="og:url" content="https://gotitos.github.io/index.html"/>
 <meta property="og:type" content="website"/>
 <meta name="twitter:card" content="summary_large_image"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Sora:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:root{--bg:#0a0a0b;--bg2:#111113;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.14);--text:#ede8e3;--muted:#6b6560;--accent:#c9a96e;--ease-out:cubic-bezier(0.0,0.0,0.2,1);--ease-spring:cubic-bezier(0.34,1.56,0.64,1)}
+:root{--bg:#0a0a0b;--bg2:#111113;--bg3:#18181a;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#ede8e3;--muted:#6b6560;--accent:#c9a96e;--accent2:#e0c28a;--accent-dim:rgba(201,169,110,0.10);--accent-dim2:rgba(201,169,110,0.05);--bg3:#1a1a1d;--ease-out:cubic-bezier(0.0,0.0,0.2,1);--ease-spring:cubic-bezier(0.34,1.56,0.64,1)}
 body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,11,.8);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:300;color:var(--text);text-decoration:none}
 .nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 150ms ease}
+.nav-links a{font-size:11px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 150ms ease}
 .nav-links a:hover{color:var(--text)}
 .nav-links a.active{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 48px 100px;position:relative;text-align:center;overflow:hidden}
-.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 65%,rgba(201,169,110,.05) 0%,transparent 70%);pointer-events:none}
-.hero-counter{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.22em;color:var(--muted);margin-bottom:32px;opacity:0;animation:fadeUp 700ms var(--ease-out) 100ms both}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(64px,11vw,148px);font-weight:300;line-height:.93;letter-spacing:-.025em;margin-bottom:24px;opacity:0;animation:fadeUp 900ms var(--ease-out) 200ms both}
-.hero-title em{font-style:italic;color:var(--accent)}
-.hero-subtitle{font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,28px);font-weight:300;font-style:italic;color:var(--muted);margin-bottom:36px;opacity:0;animation:fadeUp 800ms var(--ease-out) 340ms both}
-.hero-desc{font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.04em;line-height:1.9;opacity:0;animation:fadeUp 800ms var(--ease-out) 460ms both}
-.hero-line{position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--border)}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px;opacity:0;animation:fadeUp 800ms var(--ease-out) 640ms both}
-.hero-scroll span{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
-.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2.2s ease-in-out infinite}
-@keyframes scrollPulse{0%,100%{opacity:.25;transform:scaleY(1) translateY(0)}50%{opacity:1;transform:scaleY(.65) translateY(8px)}}
-.loc-bar{display:flex;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;background:var(--bg);position:sticky;top:61px;z-index:100}
-.loc-bar::-webkit-scrollbar{display:none}
-.loc-btn{flex-shrink:0;padding:14px 32px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);background:transparent;border:none;border-right:1px solid var(--border);cursor:pointer;transition:color 150ms ease,background 150ms ease;white-space:nowrap}
-.loc-btn:last-child{border-right:none}
-.loc-btn:hover{color:var(--text);background:rgba(255,255,255,.02)}
-.loc-btn.active{color:var(--accent);background:rgba(201,169,110,.05)}
-.gallery-wrap{padding:24px 28px 80px}
-.masonry{columns:3;column-gap:8px}
-@media(max-width:900px){.masonry{columns:2}}
-@media(max-width:520px){.masonry{columns:1}}
-.photo-item{break-inside:avoid;margin-bottom:8px;position:relative;overflow:hidden;border-radius:3px;cursor:pointer;display:block}
-
-.photo-item img{width:100%;height:auto;display:block;transition:transform 600ms var(--ease-out),filter 400ms ease;filter:brightness(.95) saturate(.9)}
-.photo-item:hover img{transform:scale(1.04);filter:brightness(1.02) saturate(1.06)}
-.photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,transparent 55%);opacity:0;transition:opacity 320ms ease;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
-.photo-item:hover .photo-overlay{opacity:1}
-.photo-meta{display:flex;align-items:center;justify-content:space-between}
-.photo-loc{display:flex;align-items:center;gap:5px;font-size:11px;color:rgba(255,255,255,.88);font-weight:300;letter-spacing:.05em}
-.photo-loc svg{width:11px;height:11px;flex-shrink:0}
-.photo-expand{width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.28);display:flex;align-items:center;justify-content:center;font-size:13px;color:white;transition:background 150ms ease,border-color 150ms ease}
-.photo-item:hover .photo-expand{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.55)}
-.lightbox{position:fixed;inset:0;z-index:500;background:rgba(5,5,6,.97);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 280ms ease;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.lightbox.open{opacity:1;pointer-events:all}
-.lightbox-inner{display:flex;flex-direction:column;align-items:center;gap:18px;max-width:92vw;max-height:92vh}
-.lightbox img{max-width:88vw;max-height:80vh;width:auto;height:auto;object-fit:contain;border-radius:2px;display:block;transform:scale(.95);transition:transform 350ms var(--ease-spring)}
-.lightbox.open img{transform:scale(1)}
-.lb-caption{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);letter-spacing:.07em;font-weight:300}
-.lb-caption svg{width:11px;height:11px}
-.lb-close{position:fixed;top:24px;right:28px;background:none;border:1px solid var(--border2);color:var(--muted);width:40px;height:40px;border-radius:50%;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color 150ms ease,background 150ms ease;z-index:10}
-.lb-close:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.lb-nav{position:fixed;top:50%;transform:translateY(-50%);background:none;border:1px solid var(--border2);color:var(--muted);width:46px;height:46px;border-radius:50%;font-size:19px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:color 150ms ease,background 150ms ease,transform 200ms var(--ease-spring);z-index:10}
-.lb-nav:hover{color:var(--text);background:rgba(255,255,255,.06)}
-.lb-nav:active{transform:translateY(-50%) scale(.93)}
-.lb-prev{left:20px}
-.lb-next{right:20px}
-.lb-counter{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--muted)}
+.hero-wrap{position:relative;overflow:hidden}
+.hero-grid-bg{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--border) 1px,transparent 1px),linear-gradient(90deg,var(--border) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 60% at 60% 40%,black 20%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 70% 60% at 60% 40%,black 20%,transparent 75%)}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:140px 48px 80px;max-width:1200px;margin:0 auto;position:relative;z-index:1}
+.hero-glow{position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,110,.07) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none;z-index:0}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--accent);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px;opacity:0;animation:fadeUp 600ms var(--ease-out) 100ms both}
+.hero-eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--accent)}
+.hero-name{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,6vw,88px);font-weight:300;line-height:1.0;letter-spacing:-.02em;margin-bottom:16px;opacity:0;animation:fadeUp 800ms var(--ease-out) 180ms both}
+.hero-name em{font-style:italic;color:var(--accent)}
+.hero-role{font-size:13px;font-weight:300;color:var(--muted);letter-spacing:.06em;margin-bottom:28px;opacity:0;animation:fadeUp 700ms var(--ease-out) 280ms both}
+.hero-desc{font-size:14px;font-weight:300;color:var(--muted);line-height:1.85;max-width:400px;margin-bottom:40px;opacity:0;animation:fadeUp 700ms var(--ease-out) 360ms both}
+.hero-desc strong{color:var(--text);font-weight:500}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:fadeUp 700ms var(--ease-out) 440ms both}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--accent);color:#0a0a0b;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background 150ms ease,transform 120ms var(--ease-spring)}
+.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:transparent;color:var(--muted);border:1px solid var(--border2);border-radius:5px;font-size:13px;text-decoration:none;transition:color 150ms ease,border-color 150ms ease,transform 120ms var(--ease-spring)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
+.hero-right{display:flex;flex-direction:column;align-items:center;gap:20px;opacity:0;animation:fadeUp 800ms var(--ease-out) 300ms both;position:relative;z-index:1}
+.photo-frame{position:relative;width:260px;height:320px}
+.photo-frame::before{content:'';position:absolute;inset:-1px;border-radius:10px;background:linear-gradient(135deg,var(--accent) 0%,transparent 55%);opacity:.35;z-index:0}
+.photo-frame img{position:relative;z-index:1;width:100%;height:100%;object-fit:cover;border-radius:9px;display:block;filter:grayscale(15%)}
+.photo-placeholder{position:relative;z-index:1;width:100%;height:100%;border-radius:9px;background:var(--bg2);border:1px solid var(--border);display:none;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:72px;font-style:italic;color:var(--border2)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:260px}
+.stat{background:var(--bg2);border:1px solid var(--border);border-radius:7px;padding:14px 16px}
+.stat .n{font-family:'DM Mono',monospace;font-size:20px;color:var(--accent);line-height:1;margin-bottom:4px}
+.stat .l{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.1em}
+.marquee-wrap{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;background:var(--bg2)}
+.marquee-track{display:flex;gap:36px;animation:marquee 28s linear infinite;width:max-content}
+.marquee-track:hover{animation-play-state:paused}
+.m-item{display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.m-dot{width:3px;height:3px;border-radius:50%;background:var(--accent);flex-shrink:0}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.section{padding:80px 48px;max-width:1200px;margin:0 auto}
+.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,52px);font-weight:300;letter-spacing:-.02em;line-height:1.1;margin-bottom:48px}
+.projects-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.proj-card{background:transparent;padding:32px 28px;position:relative;text-decoration:none;color:inherit;display:block;transition:background 200ms ease}
+.proj-card:hover{background:rgba(255,255,255,0.02)}
+.proj-card:hover .proj-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;letter-spacing:-.01em;margin-bottom:8px}
+.proj-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;margin-bottom:18px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:0;width:100%}
+.tag{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);background:var(--accent-dim2);border:1px solid rgba(201,169,110,.13);border-radius:3px;padding:3px 7px;letter-spacing:.04em}
+.proj-badge{position:absolute;top:14px;right:50px;font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;border-radius:3px;padding:3px 7px}
+.badge-live{color:rgba(74,222,128,.9);background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.18)}
+.badge-hack{color:var(--accent);background:var(--accent-dim2);border:1px solid rgba(201,169,110,.18)}
+.updates-section{border-top:1px solid var(--border);margin-top:22px;padding-top:18px}
+.updates-title{font-size:10px;font-family:'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.updates-title::before{content:'';display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+.update-item{display:flex;gap:10px;margin-bottom:9px;align-items:flex-start}
+.update-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--muted);white-space:nowrap;padding-top:1px;flex-shrink:0}
+.update-text{font-size:12px;color:var(--muted);font-weight:300;line-height:1.5}
+.update-text strong{color:var(--text);font-weight:500}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.edu-card{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:28px;transition:border-color 200ms ease}
+.edu-card:hover{border-color:var(--border2)}
+.edu-year{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.1em;margin-bottom:10px}
+.edu-title{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:400;margin-bottom:4px}
+.edu-org{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:16px}
+.edu-list{list-style:none;display:flex;flex-direction:column;gap:7px}
+.edu-list li{font-size:12px;color:var(--muted);font-weight:300;padding-left:14px;position:relative;line-height:1.5}
+.edu-list li::before{content:'—';position:absolute;left:0;color:var(--accent);font-size:10px;top:2px}
 .footer-wrap{border-top:1px solid var(--border)}
 footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:36px 48px;max-width:1200px;margin:0 auto}
 .footer-copy{font-size:12px;color:var(--muted);font-weight:300}
 .footer-links{display:flex;gap:24px}
 .footer-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.05em;transition:color 150ms ease}
 .footer-links a:hover{color:var(--accent)}
+
+
+
+
+.proj-links{display:flex;gap:16px;align-items:center;margin-top:16px;padding-top:14px;border-top:1px solid var(--border);width:100%}
+.proj-link{color:var(--muted);text-decoration:none;display:inline-flex;align-items:center;transition:color 180ms ease;opacity:.7}
+.proj-link:hover{color:var(--accent);opacity:1}
+.proj-link svg{display:block}
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:768px){nav{padding:16px 20px}.hero{padding:100px 24px 100px}.gallery-wrap{padding:16px 12px 60px}footer{padding:28px 20px;flex-direction:column;align-items:flex-start}.lb-prev{left:10px}.lb-next{right:10px}.lb-nav{width:36px;height:36px;font-size:16px}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 550ms var(--ease-out),transform 550ms var(--ease-out)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:900px){
+  nav{padding:16px 20px}
+  .hero{grid-template-columns:1fr;gap:40px;padding:100px 24px 60px}
+  .hero-right{align-items:flex-start}
+  .section{padding:60px 24px}
+  .projects-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  footer{padding:28px 20px;flex-direction:column;align-items:flex-start}
+}
 </style>
 </head>
 <body>
 <nav>
-  <a href="index.html" class="nav-logo">From My Eyes</a>
+  <a href="index.html" class="nav-logo">G.O.</a>
   <ul class="nav-links">
-    <li><a href="index.html">SWE Portfolio</a></li>
-    <li><a href="photoPage.html" class="active">Photography</a></li>
+    <li><a href="index.html" class="active">SWE Portfolio</a></li>
+    <li><a href="photoPage.html">Photography</a></li>
     <li><a href="resumePage.html">Resume</a></li>
   </ul>
 </nav>
 
-<div class="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-counter">Photography — 001</div>
-  <h1 class="hero-title">From <em>My</em><br>Eyes.</h1>
-  <p class="hero-subtitle">Architecture &amp; Urban Landscapes</p>
-  <p class="hero-desc">Moments captured across Kyoto, Kamakura &amp; New York City.</p>
-  <div class="hero-line"></div>
-  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+<div class="hero-wrap">
+  <div class="hero-grid-bg"></div>
+  <div class="hero">
+    <div style="position:relative;z-index:1">
+      <div class="hero-eyebrow">Full-Stack Engineer</div>
+      <h1 class="hero-name">Gotit<br><em>Oopadhayaya</em></h1>
+      <p class="hero-desc">Full-stack developer and team leader with experience building <strong>AI-powered applications</strong>. Computer Science senior at CSULB, graduating May 2026.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">View Projects ↓</a>
+        <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank" class="btn-ghost">Get in Touch →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="photo-frame">
+        <img src="picture.png" alt="Gotit Oopadhayaya" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"/>
+        <div class="photo-placeholder">G</div>
+      </div>
+
+    </div>
+    <div class="hero-glow"></div>
+  </div>
 </div>
 
-<div class="loc-bar" id="locBar">
-  <button class="loc-btn active" data-filter="all">All — 10</button>
-  <button class="loc-btn" data-filter="kyoto">Kyoto</button>
-  <button class="loc-btn" data-filter="kamakura">Kamakura</button>
-  <button class="loc-btn" data-filter="nyc">New York</button>
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="m-item"><span class="m-dot"></span>Python</span>
+    <span class="m-item"><span class="m-dot"></span>React / TypeScript</span>
+    <span class="m-item"><span class="m-dot"></span>Node.js</span>
+    <span class="m-item"><span class="m-dot"></span>Supabase</span>
+    <span class="m-item"><span class="m-dot"></span>Gemini AI</span>
+    <span class="m-item"><span class="m-dot"></span>Flask</span>
+    <span class="m-item"><span class="m-dot"></span>SQL</span>
+    <span class="m-item"><span class="m-dot"></span>C++</span>
+    <span class="m-item"><span class="m-dot"></span>MLKit</span>
+    <span class="m-item"><span class="m-dot"></span>HTML &amp; CSS</span>
+    <span class="m-item"><span class="m-dot"></span>JavaScript</span>
+    <span class="m-item"><span class="m-dot"></span>GitHub</span>
+    <span class="m-item"><span class="m-dot"></span>Python</span>
+    <span class="m-item"><span class="m-dot"></span>React / TypeScript</span>
+    <span class="m-item"><span class="m-dot"></span>Node.js</span>
+    <span class="m-item"><span class="m-dot"></span>Supabase</span>
+    <span class="m-item"><span class="m-dot"></span>Gemini AI</span>
+    <span class="m-item"><span class="m-dot"></span>Flask</span>
+    <span class="m-item"><span class="m-dot"></span>SQL</span>
+    <span class="m-item"><span class="m-dot"></span>C++</span>
+    <span class="m-item"><span class="m-dot"></span>MLKit</span>
+    <span class="m-item"><span class="m-dot"></span>HTML &amp; CSS</span>
+    <span class="m-item"><span class="m-dot"></span>JavaScript</span>
+    <span class="m-item"><span class="m-dot"></span>GitHub</span>
+  </div>
 </div>
 
-<div class="gallery-wrap">
-  <div class="masonry" id="masonry">
 
-    <div class="photo-item" data-filter="kyoto" data-src="_GOT0989.jpeg?v=2" data-caption="Kyoto">
-      <img src="_GOT0989.jpeg?v=2" alt="Stone Lantern Garden, Kyoto" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
+<div class="section" id="projects">
+  <div class="sec-label">My Projects</div>
+  <h2 class="sec-title">My Projects</h2>
+      <div class="projects-grid">
+
+    <div class="proj-card reveal" onclick="window.open('https://devpost.com/software/virtucycle','_blank')" style="cursor:pointer">
+      <span class="proj-badge badge-hack">Hackathon</span>
+      <h3 class="proj-name">VirtuCycle</h3>
+      <p class="proj-desc">AI recycling app for visually impaired users with TTS and voice detection for fully hands-free operation. Classifies items in under 1.5s via Gemini Vision API with geolocation for local guidelines.</p>
+      <div class="proj-tags"><span class="tag">Gemini Vision</span><span class="tag">MLKit</span><span class="tag">Geolocation</span><span class="tag">TTS</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/gotitos" target="_blank" class="proj-link" title="GitHub" onclick="event.stopPropagation()"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://devpost.com/software/virtucycle" target="_blank" class="proj-link" title="Devpost" onclick="event.stopPropagation()"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M6.002 1.61L0 12.004 6.002 22.4h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z"/></svg></a>
+      </div>
     </div>
 
-    <div class="photo-item" data-filter="kamakura" data-src="_GOT1138.jpeg?v=2" data-caption="Kamakura">
-      <img src="_GOT1138.jpeg?v=2" alt="Enoden Tram, Kamakura" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kamakura</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
+    <div class="proj-card reveal" onclick="window.open('https://github.com/gotitos','_blank')" style="cursor:pointer">
+      <h3 class="proj-name">Pulse</h3>
+      <p class="proj-desc">Social music app using Spotify's API and Supabase for artist and user discovery. Led a team of 5 to deliver 3 core social features over 2 months with a responsive, user-friendly UI.</p>
+      <div class="proj-tags"><span class="tag">React</span><span class="tag">Flask</span><span class="tag">Supabase</span><span class="tag">Spotify API</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/gotitos" target="_blank" class="proj-link" title="GitHub" onclick="event.stopPropagation()"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+      </div>
     </div>
 
-    <div class="photo-item" data-filter="nyc" data-src="nyc2.jpeg?v=2" data-caption="New York City">
-      <img src="nyc2.jpeg?v=2" alt="Diana Statue, The Met" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-    </div>
-
-    <div class="photo-item" data-filter="kamakura" data-src="_GOT1191.jpeg?v=2" data-caption="Kamakura">
-      <img src="_GOT1191.jpeg?v=2" alt="Coastal Seawall, Kamakura" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kamakura</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
+    <div class="proj-card reveal" onclick="window.open('https://github.com/gotitos','_blank')" style="cursor:pointer">
+      <h3 class="proj-name">SecureChat</h3>
+      <p class="proj-desc">End-to-end encrypted chat platform with Supabase auth and AES-GCM encryption. Fully mobile-responsive on iOS with friend requests, temporary invites, and group chat.</p>
+      <div class="proj-tags"><span class="tag">AES-GCM</span><span class="tag">Supabase Auth</span><span class="tag">iOS</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/gotitos" target="_blank" class="proj-link" title="GitHub" onclick="event.stopPropagation()"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+      </div>
     </div>
 
-    <div class="photo-item" data-filter="kyoto" data-src="_GOT0979.jpeg?v=2" data-caption="Kyoto">
-      <img src="_GOT0979.jpeg?v=2" alt="Kyoto Garden" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-
-    <div class="photo-item" data-filter="kyoto" data-src="_GOT0937.jpeg?v=2" data-caption="Kyoto">
-      <img src="_GOT0937.jpeg?v=2" alt="Temple Stairs, Kyoto" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-
-    <div class="photo-item" data-filter="kyoto" data-src="_GOT0853.jpeg?v=2" data-caption="Kyoto">
-      <img src="_GOT0853.jpeg?v=2" alt="Vermillion Shrine, Kyoto" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-
-    <div class="photo-item" data-filter="kyoto" data-src="_GOT0862.jpeg?v=2" data-caption="Kyoto">
-      <img src="_GOT0862.jpeg?v=2" alt="Temple Courtyard, Kyoto" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-
-
-    <div class="photo-item" data-filter="nyc" data-src="_GOT1562.jpg?v=2" data-caption="New York City">
-      <img src="_GOT1562.jpg?v=2" alt="The Met Museum facade, New York City" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
-
-    <div class="photo-item" data-filter="nyc" data-src="_GOT1551.jpg?v=2" data-caption="New York City">
-      <img src="_GOT1551.jpg?v=2" alt="Upper West Side building, New York City" loading="lazy"/>
-      <div class="photo-overlay"><div class="photo-meta">
-        <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
-        <div class="photo-expand">↗</div>
-      </div></div>
-    </div>
+    <div class="proj-card reveal">
+      <span class="proj-badge badge-live">Live</span>
+      <h3 class="proj-name">This2Them</h3>
+      <p class="proj-desc">Cinephile trivia game — connect two actors through shared films in as few hops as possible. Real-time TMDB API validation with MCU/DCU filters and difficulty levels.</p>
+      <div class="proj-tags"><span class="tag">JavaScript</span><span class="tag">TMDB API</span><span class="tag">Netlify</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/gotitos/this2them" target="_blank" class="proj-link" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg></a>
+        <a href="https://this2them.netlify.app/" target="_blank" class="proj-link" title="Netlify"><svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M16.934 8.519a1.044 1.044 0 0 1 .303.23l2.349-1.045-2.192-2.171zM12.06 6.22l-.401-.401-2.507 2.507.653.653zM11.533 5.7L9.86 4.027 8.717 5.171l-.537-.537L5.2 7.614 7.574 9.99l.304-.304.744.745 2.196-2.196-.744-.745.746-.746.744.745 2.197-2.197-.744-.745zm-4.44 4.44l-.744-.745-1.17 1.17.744.745zM6.94 10.9l-.744-.745-1.963 1.963.745.744zM5.2 12.138l-.745-.745-1.47 1.47.744.745zM3.731 10.67l-.746-.745L1.5 11.41l.745.744zM2.261 9.2l-.745-.745-1.486 1.485.745.745zM.792 7.73l-.746-.745L0 7.03v1.491zM22.5 12h-3.44l1.72 1.72zM13.06 4.22l.4.4 2.507-2.507-.652-.652zM14.53 5.7l1.672-1.672 1.143 1.144.537-.537 2.98-2.98-2.374-2.373-.304.304-.744-.745-2.197 2.197.744.745-.746.746-.744-.745L12.3 3.882l.744.745zM18.94 12.9l.744.745 1.17-1.17-.744-.745zM19.79 11.855l.744.745 1.963-1.963-.745-.744zM21.53 10.71l.744.745 1.47-1.47-.744-.745zM22.999 9.24l.745.745L24 9.94V8.449zM21.53 13.29l-.744-.745-1.963 1.963.745.744zM20.06 14.754l-.744-.745-1.17 1.17.744.745zM12 24l2.373-2.373-.652-.653-2.507 2.507.4.4zm5.04-5.04l-2.197-2.197-.744.745-.746-.746.744-.745-2.197-2.196-.744.744-.744-.744-2.197 2.196.744.745-.747.747-.744-.745-2.197 2.197.745.744.744-.744 2.197 2.196.744-.744.746.746-.744.744 2.197 2.197.744-.745.744.745 1.144-1.144 1.671 1.672 1.673-1.672-1.672-1.672 1.143-1.143-.537-.537zm-3.326 3.326l-.744-.744-2.197 2.196.744.745zM8.96 19.78l-.744-.744L6.079 21.21l.744.745zM7.49 18.31l-.744-.744-1.963 1.962.745.745zM6.02 16.84l-.744-.745-1.47 1.47.745.745zM4.55 15.37l-.744-.744-1.486 1.485.745.745zM3.08 13.9l-.745-.744-1.485 1.485.745.744zM1.61 12.43l-.745-.745-1.486 1.486.745.744zm19.71 3.44l-1.72-1.72L17.88 15.6l1.72 1.72zM12 0L9.627 2.373l.652.653L12.653.534z"/></svg></a>
+      </div>
+      <div class="updates-section">
+        <div class="updates-title">Dev Log</div>
+        <div class="update-item">
+          <span class="update-date">Apr 2026</span>
+          <span class="update-text"><strong>Serverless proxy</strong> added on Netlify — TMDB API key now centralized server-side.</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">Apr 2026</span>
+          <span class="update-text"><strong>MCU / DCU filters</strong> live — restrict the graph to Marvel or DC universes only.</span>
+        </div>
+        <div class="update-item">
+          <span class="update-date">Mar 2026</span>
+          <span class="update-text">Initial launch — core hop mechanic and real-time TMDB validation deployed.</span>
+        </div>
+      </div>
     </div>
     </div>
 
   </div>
+    </div>
+
+  </div>
+
+  </div>
 </div>
 
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="lb-close" id="lbClose" aria-label="Close">✕</button>
-  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">←</button>
-  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">→</button>
-  <div class="lightbox-inner">
-    <img id="lbImg" src="" alt=""/>
-    <div class="lb-caption">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-      <span id="lbCaptionText"></span>
+<div class="section" style="padding-top:0">
+  <div class="sec-label">Background</div>
+  <h2 class="sec-title">Education &amp; Experience</h2>
+  <div class="edu-grid">
+    <div class="edu-card reveal">
+      <div class="edu-year">2022 — May 2026</div>
+      <h3 class="edu-title">B.S. Computer Science</h3>
+      <p class="edu-org">California State University Long Beach — Long Beach, CA</p>
+      <ul class="edu-list">
+        <li>Databases, Modern Web Development, Operating Systems</li>
+        <li>Data Structures, Algorithms, Project Management I &amp; II</li>
+      </ul>
+    </div>
+    <div class="edu-card reveal">
+      <div class="edu-year">Mar. 2026</div>
+      <h3 class="edu-title">Lead Developer — VirtuCycle</h3>
+      <p class="edu-org">Beach Hacks 9.0 Hackathon</p>
+      <ul class="edu-list">
+        <li>Led development of AI recycling app for visually impaired users</li>
+        <li>Built TTS and voice detection for fully hands-free usability</li>
+        <li>Processed classifications in under 1.5s via Gemini Vision API</li>
+        <li>ML item classification + geolocation for local recycling guidelines</li>
+      </ul>
     </div>
   </div>
-  <div class="lb-counter" id="lbCounter"></div>
 </div>
 
 <div class="footer-wrap">
   <footer>
-    <p class="footer-copy">© 2026 Gotit Oopadhayaya — Shot on Sony α6400.</p>
+    <p class="footer-copy">© 2026 Gotit Oopadhayaya — Full-stack developer building AI-powered applications.</p>
     <div class="footer-links">
-      <a href="index.html">SWE Portfolio</a>
+      <a href="photoPage.html">Photography</a>
       <a href="resumePage.html">Resume</a>
       <a href="https://github.com/gotitos" target="_blank">GitHub</a>
       <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank">LinkedIn</a>
@@ -226,41 +286,8 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
 </div>
 
 <script>
-const allItems=[...document.querySelectorAll('.photo-item')];
-
-
-document.querySelectorAll('.loc-btn').forEach(btn=>{
-  btn.addEventListener('click',()=>{
-    document.querySelectorAll('.loc-btn').forEach(b=>b.classList.remove('active'));
-    btn.classList.add('active');
-    const f=btn.dataset.filter;
-    allItems.forEach(item=>{
-      const show=f==='all'||item.dataset.filter===f;
-      item.style.transition='opacity 280ms ease,transform 280ms ease';
-      if(show){item.style.display='block';requestAnimationFrame(()=>{item.style.opacity='1';item.style.transform='translateY(0)'})}
-      else{item.style.opacity='0';item.style.transform='translateY(8px)';setTimeout(()=>{if(item.style.opacity==='0')item.style.display='none'},280)}
-    });
-  });
-});
-
-const lb=document.getElementById('lightbox');
-const lbImg=document.getElementById('lbImg');
-const lbCaptionText=document.getElementById('lbCaptionText');
-const lbCounter=document.getElementById('lbCounter');
-let idx=0,visible=[];
-function getVisible(){return allItems.filter(el=>el.style.display!=='none'&&el.style.opacity!=='0')}
-function openLb(i){visible=getVisible();idx=i;updateLb();lb.classList.add('open');document.body.style.overflow='hidden'}
-function closeLb(){lb.classList.remove('open');document.body.style.overflow=''}
-function updateLb(){const item=visible[idx];lbImg.src=item.dataset.src;lbImg.alt=item.dataset.caption;lbCaptionText.textContent=item.dataset.caption;lbCounter.textContent=String(idx+1).padStart(2,'0')+' / '+String(visible.length).padStart(2,'0');document.getElementById('lbPrev').style.opacity=idx===0?'0.25':'1';document.getElementById('lbNext').style.opacity=idx===visible.length-1?'0.25':'1'}
-allItems.forEach(item=>{item.addEventListener('click',()=>{visible=getVisible();const i=visible.indexOf(item);openLb(i>=0?i:0)})});
-document.getElementById('lbClose').addEventListener('click',closeLb);
-document.getElementById('lbPrev').addEventListener('click',e=>{e.stopPropagation();if(idx>0){idx--;updateLb()}});
-document.getElementById('lbNext').addEventListener('click',e=>{e.stopPropagation();if(idx<visible.length-1){idx++;updateLb()}});
-lb.addEventListener('click',e=>{if(e.target===lb)closeLb()});
-document.addEventListener('keydown',e=>{if(!lb.classList.contains('open'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft'&&idx>0){idx--;updateLb()}if(e.key==='ArrowRight'&&idx<visible.length-1){idx++;updateLb()}});
-let tx=0;
-lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
-lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){if(dx<0&&idx<visible.length-1){idx++;updateLb()}if(dx>0&&idx>0){idx--;updateLb()}}});
+const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*80);io.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
 </body>
 </html>
