@@ -41,13 +41,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content
 .loc-btn:last-child{border-right:none}
 .loc-btn:hover{color:var(--text);background:rgba(255,255,255,.02)}
 .loc-btn.active{color:var(--accent);background:rgba(201,169,110,.05)}
-.gallery-wrap{padding:24px 28px 80px}
-.masonry{columns:3;column-gap:8px}
+.gallery-wrap{padding:24px 28px 80px;max-width:1400px;margin:0 auto}
+.masonry{columns:3;column-gap:8px;max-width:1400px;margin:0 auto}
 @media(max-width:900px){.masonry{columns:2}}
 @media(max-width:520px){.masonry{columns:1}}
-.photo-item{break-inside:avoid;margin-bottom:8px;position:relative;overflow:hidden;border-radius:3px;cursor:pointer;display:block}
+.photo-item{break-inside:avoid;margin-bottom:8px;position:relative;overflow:hidden;border-radius:3px;cursor:pointer}
 
-.photo-item img{width:100%;height:auto;display:block;transition:transform 600ms var(--ease-out),filter 400ms ease;filter:brightness(.95) saturate(.9)}
+.photo-item img{width:100%;height:auto;display:block;max-width:750px;image-rendering:-webkit-optimize-contrast;transition:transform 600ms var(--ease-out),filter 400ms ease;filter:brightness(.95) saturate(.9)}
 .photo-item:hover img{transform:scale(1.04);filter:brightness(1.02) saturate(1.06)}
 .photo-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,transparent 55%);opacity:0;transition:opacity 320ms ease;display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
 .photo-item:hover .photo-overlay{opacity:1}
@@ -111,24 +111,24 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
 <div class="gallery-wrap">
   <div class="masonry" id="masonry">
 
-    <div class="photo-item" data-filter="kyoto" data-src="GOT0989.jpeg?v=2" data-caption="Kyoto">
-      <img src="GOT0989.jpeg?v=2" alt="Stone Lantern Garden, Kyoto" loading="lazy"/>
+    <div class="photo-item" data-filter="kyoto" data-src="GOT0989.jpeg?v=3" data-caption="Kyoto">
+      <img src="GOT0989.jpeg?v=3" alt="Stone Lantern Garden, Kyoto" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="kamakura" data-src="GOT1138.jpeg?v=2" data-caption="Kamakura">
-      <img src="GOT1138.jpeg?v=2" alt="Enoden Tram, Kamakura" loading="lazy"/>
+    <div class="photo-item" data-filter="kamakura" data-src="GOT1138.jpeg?v=3" data-caption="Kamakura">
+      <img src="GOT1138.jpeg?v=3" alt="Enoden Tram, Kamakura" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kamakura</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="nyc" data-src="nyc2.jpeg?v=2" data-caption="New York City">
-      <img src="nyc2.jpeg?v=2" alt="Diana Statue, The Met" loading="lazy"/>
+    <div class="photo-item" data-filter="nyc" data-src="nyc2.jpeg?v=3" data-caption="New York City">
+      <img src="nyc2.jpeg?v=3" alt="Diana Statue, The Met" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
         <div class="photo-expand">↗</div>
@@ -136,40 +136,40 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
     </div>
     </div>
 
-    <div class="photo-item" data-filter="kamakura" data-src="GOT1191.jpeg?v=2" data-caption="Kamakura">
-      <img src="GOT1191.jpeg?v=2" alt="Coastal Seawall, Kamakura" loading="lazy"/>
+    <div class="photo-item" data-filter="kamakura" data-src="GOT1191.jpeg?v=3" data-caption="Kamakura">
+      <img src="GOT1191.jpeg?v=3" alt="Coastal Seawall, Kamakura" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kamakura</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="kyoto" data-src="GOT0979.jpeg?v=2" data-caption="Kyoto">
-      <img src="GOT0979.jpeg?v=2" alt="Kyoto Garden" loading="lazy"/>
+    <div class="photo-item" data-filter="kyoto" data-src="GOT0979.jpeg?v=3" data-caption="Kyoto">
+      <img src="GOT0979.jpeg?v=3" alt="Kyoto Garden" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="kyoto" data-src="GOT0937.jpeg?v=2" data-caption="Kyoto">
-      <img src="GOT0937.jpeg?v=2" alt="Temple Stairs, Kyoto" loading="lazy"/>
+    <div class="photo-item" data-filter="kyoto" data-src="GOT0937.jpeg?v=3" data-caption="Kyoto">
+      <img src="GOT0937.jpeg?v=3" alt="Temple Stairs, Kyoto" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="kyoto" data-src="GOT0853.jpeg?v=2" data-caption="Kyoto">
-      <img src="GOT0853.jpeg?v=2" alt="Vermillion Shrine, Kyoto" loading="lazy"/>
+    <div class="photo-item" data-filter="kyoto" data-src="GOT0853.jpeg?v=3" data-caption="Kyoto">
+      <img src="GOT0853.jpeg?v=3" alt="Vermillion Shrine, Kyoto" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="kyoto" data-src="GOT0862.jpeg?v=2" data-caption="Kyoto">
-      <img src="GOT0862.jpeg?v=2" alt="Temple Courtyard, Kyoto" loading="lazy"/>
+    <div class="photo-item" data-filter="kyoto" data-src="GOT0862.jpeg?v=3" data-caption="Kyoto">
+      <img src="GOT0862.jpeg?v=3" alt="Temple Courtyard, Kyoto" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Kyoto</div>
         <div class="photo-expand">↗</div>
@@ -177,16 +177,16 @@ footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:w
     </div>
 
 
-    <div class="photo-item" data-filter="nyc" data-src="GOT1562.jpg?v=2" data-caption="New York City">
-      <img src="GOT1562.jpg?v=2" alt="The Met Museum facade, New York City" loading="lazy"/>
+    <div class="photo-item" data-filter="nyc" data-src="GOT1562.jpg?v=3" data-caption="New York City">
+      <img src="GOT1562.jpg?v=3" alt="The Met Museum facade, New York City" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
         <div class="photo-expand">↗</div>
       </div></div>
     </div>
 
-    <div class="photo-item" data-filter="nyc" data-src="GOT1551.jpg?v=2" data-caption="New York City">
-      <img src="GOT1551.jpg?v=2" alt="Upper West Side building, New York City" loading="lazy"/>
+    <div class="photo-item" data-filter="nyc" data-src="GOT1551.jpg?v=3" data-caption="New York City">
+      <img src="GOT1551.jpg?v=3" alt="Upper West Side building, New York City" loading="lazy"/>
       <div class="photo-overlay"><div class="photo-meta">
         <div class="photo-loc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>New York City</div>
         <div class="photo-expand">↗</div>
@@ -263,4 +263,4 @@ lb.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
 lb.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tx;if(Math.abs(dx)>50){if(dx<0&&idx<visible.length-1){idx++;updateLb()}if(dx>0&&idx>0){idx--;updateLb()}}});
 </script>
 </body>
-</html> 
+</html>
