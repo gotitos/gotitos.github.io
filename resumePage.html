@@ -8,214 +8,623 @@
 <meta property="og:description" content="Full-stack developer and team lead. CS senior at CSULB graduating May 2026."/>
 <meta property="og:image" content="https://gotitos.github.io/picture.png"/>
 <meta property="og:url" content="https://gotitos.github.io/resumePage.html"/>
-<meta property="og:type" content="website"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Sora:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,100..900,0..100;1,9..144,100..900,0..100&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-:root{--bg:#0a0a0b;--bg2:#111113;--bg3:#18181a;--border:rgba(255,255,255,0.06);--border2:rgba(255,255,255,0.12);--text:#ede8e3;--muted:#6b6560;--accent:#c9a96e;--accent2:#e0c28a;--accent-dim:rgba(201,169,110,0.10);--ease-out:cubic-bezier(0.0,0.0,0.2,1);--ease-spring:cubic-bezier(0.34,1.56,0.64,1)}
-body{background:var(--bg);color:var(--text);font-family:'Sora',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px 200px}
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:20px 48px;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(10,10,11,.8);border-bottom:1px solid var(--border)}
-.nav-logo{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:20px;font-weight:300;color:var(--text);text-decoration:none}
-.nav-links{display:flex;gap:36px;list-style:none}
-.nav-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color 150ms ease}
-.nav-links a:hover{color:var(--text)}
-.nav-links a.active{color:var(--accent);border-bottom:1px solid var(--accent);padding-bottom:2px}
-.main{max-width:860px;margin:0 auto;padding:140px 48px 80px}
-.resume-header{margin-bottom:64px;opacity:0;animation:fadeUp 700ms var(--ease-out) 100ms both}
-.resume-name{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,7vw,80px);font-weight:300;line-height:1.0;letter-spacing:-.02em;margin-bottom:8px}
-.resume-name em{font-style:italic;color:var(--accent)}
-.resume-role{font-size:13px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:24px;font-family:'DM Mono',monospace}
-.resume-contact{display:flex;gap:20px;flex-wrap:wrap}
-.resume-contact a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.05em;border-bottom:1px solid var(--border2);padding-bottom:2px;transition:color 150ms ease,border-color 150ms ease}
-.resume-contact a:hover{color:var(--accent);border-color:var(--accent)}
-.divider{height:1px;background:var(--border);margin:48px 0}
-.section-head{display:flex;align-items:center;gap:16px;margin-bottom:32px}
-.sec-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--accent)}
-.sec-line{flex:1;height:1px;background:var(--border)}
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px}
-.skill-box{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:22px}
-.skill-cat{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+::selection{background:var(--lime);color:var(--ink)}
+
+:root{
+  --paper:#F4F3EE;
+  --paper-2:#EAE8E0;
+  --ink:#0A0A0A;
+  --muted:#6b6b6b;
+  --line:rgba(10,10,10,0.12);
+  --line-soft:rgba(10,10,10,0.06);
+  --lime:#C6FF00;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+}
+
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 14,"wght" 400,"SOFT" 20;
+  font-size:15px;
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* NAV - same system, no lime active state to stay clean */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 40px;
+  background:rgba(244,243,238,0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--line-soft);
+}
+.nav-logo{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 144,"wght" 900,"SOFT" 100;
+  font-size:28px;line-height:1;
+  color:var(--ink);text-decoration:none;
+  letter-spacing:-0.04em;
+  display:flex;align-items:center;gap:6px;
+}
+.nav-logo::after{
+  content:'';width:8px;height:8px;border-radius:50%;background:var(--lime);
+}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+.nav-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink);text-decoration:none;
+  padding:10px 16px;border-radius:50px;
+  transition:background .3s var(--ease),color .3s var(--ease);
+}
+.nav-links a:hover{background:var(--ink);color:var(--paper)}
+.nav-links a.active{background:var(--lime);color:var(--ink)}
+
+/* ACTIONS BAR */
+.actions{
+  position:fixed;
+  bottom:24px;right:24px;
+  z-index:150;
+  display:flex;gap:8px;
+  background:var(--paper);
+  border:1px solid var(--ink);
+  padding:6px;
+  border-radius:100px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+.action-btn{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  padding:10px 18px;
+  border:none;background:transparent;color:var(--ink);
+  border-radius:100px;cursor:pointer;
+  transition:all .25s var(--ease);
+  text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+}
+.action-btn:hover{background:var(--ink);color:var(--paper)}
+.action-btn.primary{background:var(--ink);color:var(--paper)}
+.action-btn.primary:hover{background:var(--lime);color:var(--ink)}
+
+/* MAIN */
+.main{
+  max-width:880px;
+  margin:0 auto;
+  padding:140px 48px 140px;
+}
+
+.resume-header{
+  margin-bottom:56px;
+  padding-bottom:32px;
+  border-bottom:1px solid var(--ink);
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:40px;
+  align-items:end;
+  opacity:0;
+  animation:fadeUp .8s var(--ease) .1s forwards;
+}
+.resume-name{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 144,"wght" 500,"SOFT" 40;
+  font-size:clamp(48px,7vw,80px);
+  line-height:.95;
+  letter-spacing:-.03em;
+  margin-bottom:8px;
+}
+.resume-name em{
+  font-style:italic;
+  font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 100;
+}
+.resume-role{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:20px;
+}
+.resume-contact{
+  display:flex;gap:20px;flex-wrap:wrap;
+}
+.resume-contact a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:.04em;
+  color:var(--ink);text-decoration:none;
+  padding-bottom:2px;border-bottom:1px solid var(--line);
+  transition:border-color .2s,color .2s;
+}
+.resume-contact a:hover{border-bottom-color:var(--ink)}
+
+.header-right{
+  display:flex;flex-direction:column;gap:8px;
+  text-align:right;
+}
+.status-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 14px;
+  border-radius:100px;
+  background:var(--lime);
+  color:var(--ink);
+  white-space:nowrap;
+}
+.status-badge::before{
+  content:'';width:6px;height:6px;border-radius:50%;background:var(--ink);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.grad-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;
+  color:var(--muted);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* SECTIONS */
+.section{margin-bottom:56px}
+.section-head{
+  display:flex;align-items:baseline;gap:16px;
+  margin-bottom:24px;
+  padding-bottom:12px;
+  border-bottom:1px solid var(--line);
+}
+.sec-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.12em;
+  color:var(--muted);
+}
+.sec-title{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 144,"wght" 500,"SOFT" 30;
+  font-size:24px;
+  letter-spacing:-.01em;
+}
+
+/* SUMMARY */
+.summary{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 30,"wght" 400,"SOFT" 40;
+  font-size:17px;
+  line-height:1.7;
+  color:var(--ink);
+  max-width:680px;
+}
+.summary strong{
+  font-weight:600;
+  font-variation-settings:"opsz" 30,"wght" 600;
+}
+.summary .hl{
+  background:linear-gradient(180deg,transparent 60%,var(--lime) 60%);
+  padding:0 2px;
+}
+
+/* SKILLS */
+.skills-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+.skill-box{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:20px 22px;
+  background:var(--paper-2);
+  transition:border-color .3s;
+}
+.skill-box:hover{border-color:var(--ink)}
+.skill-cat{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);
+  margin-bottom:12px;
+}
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
-.skill-tag{font-size:11px;color:var(--muted);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:4px 10px}
-.timeline-item{display:grid;grid-template-columns:140px 1fr;gap:28px;margin-bottom:36px;opacity:0;transform:translateY(14px);transition:opacity 500ms var(--ease-out),transform 500ms var(--ease-out)}
+.skill-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;
+  color:var(--ink);
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:5px 10px;
+  letter-spacing:.02em;
+}
+
+/* TIMELINE */
+.timeline-item{
+  display:grid;
+  grid-template-columns:150px 1fr;
+  gap:32px;
+  margin-bottom:32px;
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity .6s var(--ease),transform .6s var(--ease);
+}
 .timeline-item.visible{opacity:1;transform:translateY(0)}
-.tl-left{padding-top:3px}
-.tl-date{font-family:'DM Mono',monospace;font-size:10px;color:var(--accent);letter-spacing:.1em;margin-bottom:4px}
-.tl-type{font-size:11px;color:var(--muted);font-weight:300}
-.tl-right{}
-.tl-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:400;margin-bottom:4px}
-.tl-org{font-size:12px;color:var(--muted);font-style:italic;margin-bottom:14px}
-.tl-list{list-style:none;display:flex;flex-direction:column;gap:7px}
-.tl-list li{font-size:13px;color:var(--muted);font-weight:300;padding-left:16px;position:relative;line-height:1.55}
-.tl-list li::before{content:'—';position:absolute;left:0;color:var(--accent);font-size:10px;top:3px}
+.tl-date{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.1em;
+  color:var(--ink);
+  margin-bottom:4px;
+  font-weight:500;
+}
+.tl-type{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);
+}
+.tl-title{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 144,"wght" 500,"SOFT" 30;
+  font-size:22px;letter-spacing:-.01em;
+  margin-bottom:4px;
+  line-height:1.2;
+}
+.tl-title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 144,"wght" 400,"SOFT" 80;
+}
+.tl-org{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 20,"wght" 400;
+  font-style:italic;
+  font-size:13px;
+  color:var(--muted);
+  margin-bottom:14px;
+}
+.tl-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.tl-list li{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 20,"wght" 400;
+  font-size:14px;
+  color:var(--ink);
+  padding-left:18px;
+  position:relative;
+  line-height:1.55;
+}
+.tl-list li::before{
+  content:'';
+  position:absolute;
+  left:0;top:10px;
+  width:8px;height:1px;
+  background:var(--ink);
+}
 .tl-tags{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
-.tl-tag{font-size:10px;font-family:'DM Mono',monospace;color:var(--accent);background:rgba(201,169,110,.06);border:1px solid rgba(201,169,110,.14);border-radius:3px;padding:3px 7px}
-.cta-section{border-top:1px solid var(--border);padding-top:48px;margin-top:8px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:24px}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;letter-spacing:-.01em}
-.cta-title em{font-style:italic;color:var(--accent)}
-.cta-btns{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:var(--accent);color:#0a0a0b;border-radius:5px;font-size:13px;font-weight:600;text-decoration:none;letter-spacing:.04em;transition:background 150ms ease,transform 120ms var(--ease-spring)}
-.btn-primary:hover{background:var(--accent2);transform:translateY(-2px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 26px;background:transparent;color:var(--muted);border:1px solid var(--border2);border-radius:5px;font-size:13px;text-decoration:none;transition:color 150ms ease,border-color 150ms ease,transform 120ms var(--ease-spring)}
-.btn-ghost:hover{color:var(--text);border-color:rgba(255,255,255,.22);transform:translateY(-2px)}
-.footer-wrap{border-top:1px solid var(--border)}
-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;padding:36px 48px;max-width:1200px;margin:0 auto}
-.footer-copy{font-size:12px;color:var(--muted);font-weight:300}
-.footer-links{display:flex;gap:24px}
-.footer-links a{font-size:12px;color:var(--muted);text-decoration:none;letter-spacing:.05em;transition:color 150ms ease}
-.footer-links a:hover{color:var(--accent)}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.tl-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;
+  color:var(--ink);
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:4px;
+  padding:3px 7px;
+  letter-spacing:.02em;
+}
+
+/* CTA */
+.cta-section{
+  border-top:1px solid var(--ink);
+  padding-top:48px;
+  margin-top:48px;
+  text-align:center;
+}
+.cta-title{
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 144,"wght" 400,"SOFT" 60;
+  font-size:36px;
+  letter-spacing:-.02em;
+  margin-bottom:24px;
+}
+.cta-title em{
+  font-style:italic;
+  font-variation-settings:"opsz" 144,"wght" 300,"SOFT" 100;
+  background:linear-gradient(180deg,transparent 60%,var(--lime) 60%);
+  padding:0 6px;
+}
+.cta-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:14px 26px;
+  border-radius:100px;
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+  text-decoration:none;font-weight:500;
+  border:1px solid var(--ink);
+  transition:all .3s var(--ease);
+}
+.btn-primary{background:var(--ink);color:var(--paper)}
+.btn-primary:hover{background:var(--lime);color:var(--ink);border-color:var(--lime)}
+.btn-ghost{background:transparent;color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+footer{
+  border-top:1px solid var(--line);
+  padding:32px 48px;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:20px;
+  max-width:880px;margin:0 auto;
+}
+.footer-copy{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.08em;
+  color:var(--muted);
+}
+.footer-links{display:flex;gap:20px}
+.footer-links a{
+  font-family:'JetBrains Mono',monospace;
+  font-size:11px;letter-spacing:.08em;
+  color:var(--ink);text-decoration:none;
+}
+.footer-links a:hover{text-decoration:underline}
+
 @media(max-width:768px){
   nav{padding:16px 20px}
-  .main{padding:100px 24px 60px}
+  .nav-links a{padding:8px 10px;font-size:10px}
+  .main{padding:100px 24px 120px}
+  .resume-header{grid-template-columns:1fr;gap:20px}
+  .header-right{text-align:left;flex-direction:row;flex-wrap:wrap;align-items:center}
   .skills-grid{grid-template-columns:1fr}
-  .timeline-item{grid-template-columns:1fr;gap:8px}
+  .timeline-item{grid-template-columns:1fr;gap:10px}
+  .actions{bottom:16px;right:16px;left:16px;justify-content:center}
+  .action-btn{padding:10px 14px;font-size:10px}
   footer{padding:28px 20px;flex-direction:column;align-items:flex-start}
+}
+
+/* Print - clean, ATS-friendly */
+@media print{
+  body{background:#fff;color:#000;font-size:11pt}
+  nav,.actions,.cta-section,footer{display:none}
+  .main{padding:0;max-width:100%}
+  .resume-header{border-color:#000}
+  .skill-box{background:#fff;border-color:#ccc}
+  .tl-tag,.skill-tag{background:#fff;border-color:#ccc}
+  *{cursor:auto !important}
 }
 </style>
 </head>
 <body>
+
 <nav>
   <a href="index.html" class="nav-logo">G.O.</a>
   <ul class="nav-links">
-    <li><a href="index.html">SWE Portfolio</a></li>
-    <li><a href="photoPage.html">Photography</a></li>
+    <li><a href="index.html">Work</a></li>
+    <li><a href="photoPage.html">Photo</a></li>
     <li><a href="resumePage.html" class="active">Resume</a></li>
   </ul>
 </nav>
 
+<div class="actions">
+  <a href="mailto:goopadhayaya2@gmail.com" class="action-btn primary">✉ Contact</a>
+  <button onclick="window.print()" class="action-btn">⬇ Print / PDF</button>
+</div>
+
 <div class="main">
+
   <div class="resume-header">
-    <h1 class="resume-name">Gotit <em>Oopadhayaya</em></h1>
-    <p class="resume-role">Full-Stack Developer</p>
-    <div class="resume-contact">
-      <a href="tel:5625839161">(562) 583-9161</a>
-      <a href="mailto:goopadhayaya2@gmail.com">goopadhayaya2@gmail.com</a>
-      <a href="https://github.com/gotitos" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank">LinkedIn</a>
-    </div>
-  </div>
-
-  <div class="section-head"><span class="sec-label">Summary</span><div class="sec-line"></div></div>
-  <p style="font-size:14px;color:var(--muted);font-weight:300;line-height:1.85;max-width:640px;margin-bottom:48px">
-    Full-stack developer and team lead with experience building <span style="color:var(--text);font-weight:500">AI-powered applications</span> using computer vision, voice recognition, and ML classification. CS senior at CSULB graduating May 2026, seeking a SWE role where I can bring both <span style="color:var(--text);font-weight:500">technical depth</span> and <span style="color:var(--text);font-weight:500">collaborative leadership</span>.
-  </p>
-
-  <div class="section-head"><span class="sec-label">Technical Skills</span><div class="sec-line"></div></div>
-  <div class="skills-grid">
-    <div class="skill-box">
-      <div class="skill-cat">Languages</div>
-      <div class="skill-tags">
-        <span class="skill-tag">Python</span><span class="skill-tag">JavaScript</span><span class="skill-tag">TypeScript</span><span class="skill-tag">SQL</span><span class="skill-tag">C++</span>
+    <div>
+      <h1 class="resume-name">Gotit <em>Oopadhayaya</em></h1>
+      <p class="resume-role">Full-Stack Developer · AI-Powered Apps</p>
+      <div class="resume-contact">
+        <a href="mailto:goopadhayaya2@gmail.com">goopadhayaya2@gmail.com</a>
+        <a href="tel:5625839161">(562) 583-9161</a>
+        <a href="https://github.com/gotitos" target="_blank">github.com/gotitos</a>
+        <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank">LinkedIn</a>
       </div>
     </div>
-    <div class="skill-box">
-      <div class="skill-cat">Frameworks &amp; Tools</div>
-      <div class="skill-tags">
-        <span class="skill-tag">React.js</span><span class="skill-tag">Node.js</span><span class="skill-tag">Flask</span><span class="skill-tag">Supabase</span><span class="skill-tag">Gemini AI</span><span class="skill-tag">MLKit</span><span class="skill-tag">GitHub</span>
+    <div class="header-right">
+      <span class="grad-date">CSULB · B.S. Computer Science</span>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <section class="section">
+    <div class="section-head">
+      <span class="sec-num">01</span>
+      <h2 class="sec-title">Summary</h2>
+    </div>
+    <p class="summary">
+      Full-stack developer and team lead with experience building <strong>AI-powered applications</strong> using computer vision, voice recognition, and ML classification. CS senior at CSULB graduating <span class="hl">May 2026</span>, seeking a SWE role where I can bring both technical depth and collaborative leadership.
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="section">
+    <div class="section-head">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-box">
+        <div class="skill-cat">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">C++</span>
+        </div>
+      </div>
+      <div class="skill-box">
+        <div class="skill-cat">Frameworks &amp; Tools</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Flask</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">Gemini AI</span>
+          <span class="skill-tag">MLKit</span>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="section-head"><span class="sec-label">Hackathon</span><div class="sec-line"></div></div>
-  <div class="timeline-item">
-    <div class="tl-left"><div class="tl-date">Mar. 2026</div><div class="tl-type">Lead Developer</div></div>
-    <div class="tl-right">
-      <h3 class="tl-title">Beach Hacks 9.0</h3>
-      <p class="tl-org">VirtuCycle — AI Recycling App</p>
-      <ul class="tl-list">
-        <li>Led development of an AI recycling app aiding visually impaired users with hands-free operation.</li>
-        <li>Built TTS and voice detection features for fully hands-free usability.</li>
-        <li>Processed recycling classifications in under 1.5s using Gemini Vision API.</li>
-        <li>ML item classification with geolocation for local recycling guidelines.</li>
-      </ul>
-      <div class="tl-tags"><span class="tl-tag">Gemini Vision</span><span class="tl-tag">MLKit</span><span class="tl-tag">Geolocation</span><span class="tl-tag">TTS</span></div>
+  <!-- Hackathon -->
+  <section class="section">
+    <div class="section-head">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title">Hackathon</h2>
     </div>
-  </div>
-
-  <div class="divider"></div>
-  <div class="section-head"><span class="sec-label">Projects</span><div class="sec-line"></div></div>
-
-  <div class="timeline-item">
-    <div class="tl-left"><div class="tl-date">Sep '25 – May '26</div><div class="tl-type">Team Lead</div></div>
-    <div class="tl-right">
-      <h3 class="tl-title">Pulse</h3>
-      <ul class="tl-list">
-        <li>Led a team of 5 in building a social music app using Spotify's API and Supabase.</li>
-        <li>Developed responsive, user-friendly UI for artist and user discovery.</li>
-        <li>Used Flask for web development and routing; delivered 3 core social features in 2 months.</li>
-      </ul>
-      <div class="tl-tags"><span class="tl-tag">React</span><span class="tl-tag">Flask</span><span class="tl-tag">Supabase</span><span class="tl-tag">Spotify API</span></div>
+    <div class="timeline-item reveal">
+      <div>
+        <div class="tl-date">Mar 2026</div>
+        <div class="tl-type">Lead Developer</div>
+      </div>
+      <div>
+        <h3 class="tl-title">Beach Hacks 9.0 — <em>VirtuCycle</em></h3>
+        <p class="tl-org">AI recycling app for visually impaired users</p>
+        <ul class="tl-list">
+          <li>Led development of AI recycling app with hands-free operation for accessibility.</li>
+          <li>Built TTS and voice detection enabling fully hands-free user interaction.</li>
+          <li>Processed recycling classifications in under 1.5s using Gemini Vision API.</li>
+          <li>ML item classification with geolocation for localized recycling guidelines.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Gemini Vision</span>
+          <span class="tl-tag">MLKit</span>
+          <span class="tl-tag">Geolocation</span>
+          <span class="tl-tag">TTS</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="timeline-item">
-    <div class="tl-left"><div class="tl-date">Mar. 2025</div><div class="tl-type">Back-end Lead</div></div>
-    <div class="tl-right">
-      <h3 class="tl-title">SecureChat</h3>
-      <ul class="tl-list">
-        <li>Led back-end development of an end-to-end encrypted chat platform.</li>
-        <li>Incorporated Supabase auth and AES-GCM encryption; fully iOS-responsive.</li>
-        <li>Developed friend requests, temporary invites, and group chat features.</li>
-      </ul>
-      <div class="tl-tags"><span class="tl-tag">Supabase Auth</span><span class="tl-tag">AES-GCM</span><span class="tl-tag">iOS</span></div>
+  <!-- Projects -->
+  <section class="section">
+    <div class="section-head">
+      <span class="sec-num">04</span>
+      <h2 class="sec-title">Projects</h2>
     </div>
-  </div>
 
-  <div class="timeline-item">
-    <div class="tl-left"><div class="tl-date">Mar. 2026</div><div class="tl-type">Solo · Live</div></div>
-    <div class="tl-right">
-      <h3 class="tl-title">This2Them</h3>
-      <ul class="tl-list">
-        <li>Built a cinephile trivia game connecting two actors through shared films in as few hops as possible.</li>
-        <li>Integrated TMDB API for real-time actor and film validation with MCU/DCU universe filters.</li>
-        <li>Deployed on Netlify with a serverless proxy to centralize API key management.</li>
-      </ul>
-      <div class="tl-tags"><span class="tl-tag">JavaScript</span><span class="tl-tag">TMDB API</span><span class="tl-tag">Netlify</span><span class="tl-tag">Serverless</span></div>
+    <div class="timeline-item reveal">
+      <div>
+        <div class="tl-date">Sep '25 — May '26</div>
+        <div class="tl-type">Team Lead</div>
+      </div>
+      <div>
+        <h3 class="tl-title">Pulse</h3>
+        <p class="tl-org">Social music discovery app</p>
+        <ul class="tl-list">
+          <li>Led team of 5 building a social music app using Spotify API and Supabase.</li>
+          <li>Developed responsive, user-friendly UI for artist and user discovery.</li>
+          <li>Used Flask for web development and routing; delivered 3 core social features in 2 months.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">React</span>
+          <span class="tl-tag">Flask</span>
+          <span class="tl-tag">Supabase</span>
+          <span class="tl-tag">Spotify API</span>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="divider"></div>
-  <div class="section-head"><span class="sec-label">Education</span><div class="sec-line"></div></div>
-  <div class="timeline-item">
-    <div class="tl-left"><div class="tl-date">2022 – May 2026</div><div class="tl-type">Graduating</div></div>
-    <div class="tl-right">
-      <h3 class="tl-title">B.S. Computer Science</h3>
-      <p class="tl-org">California State University Long Beach — Long Beach, CA</p>
-      <ul class="tl-list">
-        <li>Databases, Modern Web Development, Operating Systems</li>
-        <li>Data Structures, Algorithms, Project Management I &amp; II</li>
-      </ul>
+    <div class="timeline-item reveal">
+      <div>
+        <div class="tl-date">Mar 2026</div>
+        <div class="tl-type">Solo · Live</div>
+      </div>
+      <div>
+        <h3 class="tl-title">This<em>2</em>Them</h3>
+        <p class="tl-org">Cinephile trivia game · <a href="https://this2them.netlify.app/" target="_blank" style="color:var(--ink)">this2them.netlify.app</a></p>
+        <ul class="tl-list">
+          <li>Built a cinephile trivia game connecting two actors through shared films in as few hops as possible.</li>
+          <li>Integrated TMDB API for real-time actor and film validation with MCU/DCU universe filters.</li>
+          <li>Deployed on Netlify with serverless proxy to centralize API key management.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">JavaScript</span>
+          <span class="tl-tag">TMDB API</span>
+          <span class="tl-tag">Netlify</span>
+          <span class="tl-tag">Serverless</span>
+        </div>
+      </div>
     </div>
-  </div>
+
+    <div class="timeline-item reveal">
+      <div>
+        <div class="tl-date">Mar 2025</div>
+        <div class="tl-type">Backend Lead</div>
+      </div>
+      <div>
+        <h3 class="tl-title">SecureChat</h3>
+        <p class="tl-org">End-to-end encrypted chat platform</p>
+        <ul class="tl-list">
+          <li>Led back-end development of an end-to-end encrypted chat platform.</li>
+          <li>Incorporated Supabase auth and AES-GCM encryption; fully iOS-responsive.</li>
+          <li>Developed friend requests, temporary invites, and group chat features.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Supabase Auth</span>
+          <span class="tl-tag">AES-GCM</span>
+          <span class="tl-tag">iOS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section class="section">
+    <div class="section-head">
+      <span class="sec-num">05</span>
+      <h2 class="sec-title">Education</h2>
+    </div>
+    <div class="timeline-item reveal">
+      <div>
+        <div class="tl-date">2022 — May 2026</div>
+        <div class="tl-type">Graduating</div>
+      </div>
+      <div>
+        <h3 class="tl-title">B.S. Computer Science</h3>
+        <p class="tl-org">California State University Long Beach · Long Beach, CA</p>
+        <ul class="tl-list">
+          <li>Databases, Modern Web Development, Operating Systems</li>
+          <li>Data Structures, Algorithms, Project Management I &amp; II</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
   <div class="cta-section">
     <h2 class="cta-title">Let's build something <em>great.</em></h2>
     <div class="cta-btns">
-      <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank" class="btn-primary">Get in Touch</a>
-      <a href="index.html" class="btn-ghost">View SWE Portfolio</a>
+      <a href="mailto:goopadhayaya2@gmail.com" class="btn btn-primary">Get in Touch</a>
+      <a href="index.html" class="btn btn-ghost">View Portfolio</a>
     </div>
   </div>
+
 </div>
 
-<div class="footer-wrap">
-  <footer>
-    <p class="footer-copy">© 2026 Gotit Oopadhayaya</p>
-    <div class="footer-links">
-      <a href="index.html">SWE Portfolio</a>
-      <a href="photoPage.html">Photography</a>
-      <a href="https://github.com/gotitos" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/gotit-oopadhayaya-b74200250/" target="_blank">LinkedIn</a>
-      <a href="mailto:goopadhayaya2@gmail.com">Email</a>
-    </div>
-  </footer>
-</div>
+<footer>
+  <div class="footer-copy">© 2026 GOTIT OOPADHAYAYA</div>
+  <div class="footer-links">
+    <a href="index.html">Work</a>
+    <a href="photoPage.html">Photo</a>
+    <a href="https://github.com/gotitos" target="_blank">GitHub</a>
+  </div>
+</footer>
 
 <script>
-const io=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*90);io.unobserve(e.target)}})},{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      setTimeout(()=>e.target.classList.add('visible'),i*80);
+      io.unobserve(e.target);
+    }
+  });
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.timeline-item').forEach(el=>io.observe(el));
 </script>
 </body>
