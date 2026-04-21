@@ -579,128 +579,339 @@ nav{
   position:absolute;
   overflow:hidden;
   font-family:'JetBrains Mono',monospace;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:40px;
 }
 .preview-pulse::before{
   content:'';
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 20% 50%,rgba(255,0,128,0.18),transparent 40%),
-    radial-gradient(circle at 80% 50%,rgba(121,40,202,0.18),transparent 40%);
+    radial-gradient(circle at 20% 50%,rgba(255,0,128,0.14),transparent 45%),
+    radial-gradient(circle at 80% 50%,rgba(121,40,202,0.14),transparent 45%);
   pointer-events:none;
 }
 
+/* Scene container - cross-fade on 12s timeline */
+.pulse-scene{
+  position:absolute;
+  inset:0;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  opacity:0;
+}
+.pulse-scene-hi{animation:pulse-scene-show 12s infinite}
+.pulse-scene-lo{animation:pulse-scene-show 12s infinite;animation-delay:6s}
+
+@keyframes pulse-scene-show{
+  0%{opacity:0}
+  3%,48%{opacity:1}
+  52%,100%{opacity:0}
+}
+
+/* User cards - two side by side */
+.pulse-users{
+  display:flex;
+  justify-content:space-between;
+  align-items:stretch;
+  gap:12px;
+  position:relative;
+  z-index:1;
+  flex:1;
+}
 .pulse-user{
-  position:relative;z-index:1;
+  flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:10px;
-  flex:0 0 auto;
+  gap:6px;
+  padding:12px 8px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:10px;
+  max-width:130px;
 }
 .pulse-avatar{
-  width:64px;height:64px;
+  width:44px;height:44px;
   border-radius:50%;
-  background:linear-gradient(135deg,#ff0080,#7928ca);
   display:flex;
   align-items:center;
   justify-content:center;
   font-family:'Fraunces',serif;
   font-variation-settings:"opsz" 144,"wght" 600;
-  font-size:26px;
+  font-size:20px;
   color:#fff;
   letter-spacing:-.02em;
-  position:relative;
-  animation:pulseGlow 3s ease infinite;
 }
-.pulse-user:nth-child(3) .pulse-avatar{
-  background:linear-gradient(135deg,#0070f3,#00d4ff);
-  animation-delay:1.5s;
-}
-@keyframes pulseGlow{
-  0%,100%{box-shadow:0 0 0 0 rgba(255,0,128,0.5)}
-  50%{box-shadow:0 0 0 12px rgba(255,0,128,0)}
-}
+.pulse-user.u1 .pulse-avatar{background:linear-gradient(135deg,#ff0080,#7928ca)}
+.pulse-user.u2 .pulse-avatar{background:linear-gradient(135deg,#0070f3,#00d4ff)}
 .pulse-name{
   font-size:10px;
+  font-weight:500;
   color:#fff;
-  letter-spacing:.08em;
-  opacity:.85;
+  letter-spacing:.03em;
 }
-.pulse-genres{
+.pulse-stats{
+  width:100%;
   display:flex;
   flex-direction:column;
-  gap:3px;
-  align-items:center;
+  gap:4px;
+  margin-top:4px;
+}
+.pulse-stat{
+  display:flex;
+  flex-direction:column;
+  gap:1px;
   font-size:8px;
-  color:rgba(255,255,255,0.55);
+  text-align:left;
+}
+.pulse-stat-label{
+  color:rgba(255,255,255,0.4);
+  letter-spacing:.12em;
   text-transform:uppercase;
-  letter-spacing:.1em;
+  font-size:7px;
+}
+.pulse-stat-val{
+  color:#fff;
+  font-size:9px;
+  letter-spacing:.02em;
+  opacity:.9;
 }
 
-.pulse-match{
-  position:relative;z-index:1;
+/* Comparison column - mirrors .pulse-user structure so check rows align with stat rows */
+.pulse-compare{
+  flex:0 0 auto;
+  min-width:86px;
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:6px;
-  flex:1;
-  margin:0 16px;
+  gap:6px; /* same as .pulse-user */
+  padding:12px 0; /* same vertical padding as .pulse-user */
 }
-.pulse-line{
+/* Invisible spacer that matches avatar height */
+.pulse-compare-spacer-avatar{
+  height:44px;
+  flex-shrink:0;
+}
+/* Invisible spacer that matches name height (line-height 1.55 × 10px ≈ 15.5px) */
+.pulse-compare-spacer-name{
+  height:15px;
+  flex-shrink:0;
+}
+/* Check rows stack - mirrors .pulse-stats block */
+.pulse-compare-rows{
   width:100%;
-  height:2px;
-  background:linear-gradient(90deg,#ff0080 0%,#7928ca 50%,#0070f3 100%);
+  display:flex;
+  flex-direction:column;
+  gap:4px; /* same as .pulse-stats */
+  margin-top:4px; /* same as .pulse-stats */
+}
+.pulse-check-row{
+  /* Match the computed height of one .pulse-stat: label(~10.5px) + 1px + value(~14px) */
+  min-height:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  opacity:0;
+}
+.pulse-check{
+  width:18px;height:18px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+  font-weight:700;
+  line-height:1;
+  flex-shrink:0;
+}
+.pulse-check-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  white-space:nowrap;
+}
+.pulse-check-row.ok .pulse-check{
+  background:rgba(0,255,136,0.18);
+  color:#00ff88;
+  border:1px solid rgba(0,255,136,0.4);
+}
+.pulse-check-row.ok .pulse-check-label{color:#00ff88}
+.pulse-check-row.bad .pulse-check{
+  background:rgba(255,82,82,0.18);
+  color:#ff5252;
+  border:1px solid rgba(255,82,82,0.4);
+}
+.pulse-check-row.bad .pulse-check-label{color:#ff5252}
+
+/* HI scene: all three rows appear green sequentially */
+.pulse-scene-hi .pulse-check-row.c1{animation:pulse-check-in 12s infinite;animation-delay:.6s}
+.pulse-scene-hi .pulse-check-row.c2{animation:pulse-check-in 12s infinite;animation-delay:1.6s}
+.pulse-scene-hi .pulse-check-row.c3{animation:pulse-check-in 12s infinite;animation-delay:2.6s}
+
+/* LO scene: first green, then two reds */
+.pulse-scene-lo .pulse-check-row.c1{animation:pulse-check-in 12s infinite;animation-delay:6.6s}
+.pulse-scene-lo .pulse-check-row.c2{animation:pulse-check-in 12s infinite;animation-delay:7.6s}
+.pulse-scene-lo .pulse-check-row.c3{animation:pulse-check-in 12s infinite;animation-delay:8.6s}
+
+@keyframes pulse-check-in{
+  0%,3%{opacity:0;transform:scale(.5)}
+  6%,46%{opacity:1;transform:scale(1)}
+  50%,100%{opacity:0;transform:scale(.5)}
+}
+
+/* Vibe score section */
+.pulse-result{
+  margin-top:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(255,255,255,0.08);
   position:relative;
-  border-radius:2px;
-  overflow:hidden;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
 }
-.pulse-line::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.6),transparent);
-  animation:pulseSlide 2.5s ease infinite;
-}
-@keyframes pulseSlide{
-  0%{transform:translateX(-100%)}
-  100%{transform:translateX(100%)}
+.pulse-result-left{display:flex;flex-direction:column;gap:4px}
+.pulse-score-label{
+  font-size:8px;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:.18em;
+  text-transform:uppercase;
 }
 .pulse-score{
   font-family:'Fraunces',serif;
   font-variation-settings:"opsz" 144,"wght" 600;
-  font-size:32px;
-  color:#fff;
-  letter-spacing:-.03em;
+  font-size:36px;
   line-height:1;
+  letter-spacing:-.03em;
 }
-.pulse-score-label{
-  font-size:8px;
-  color:rgba(255,255,255,0.6);
-  letter-spacing:.2em;
-  text-transform:uppercase;
+.pulse-scene-hi .pulse-score{color:#00ff88}
+.pulse-scene-lo .pulse-score{color:#ff8a8a}
+
+/* Score number steps up as each check appears */
+.pulse-scene-hi .pulse-score::before{
+  content:'0%';
+  animation:pulse-score-hi 12s infinite;
+  animation-delay:.4s;
 }
-.pulse-match-badge{
-  font-size:9px;
-  color:#00ff88;
-  background:rgba(0,255,136,0.1);
-  border:1px solid rgba(0,255,136,0.4);
-  padding:4px 10px;
+.pulse-scene-lo .pulse-score::before{
+  content:'0%';
+  animation:pulse-score-lo 12s infinite;
+  animation-delay:6.4s;
+}
+/* HI: c1 @ 0.6s (1.67%), c2 @ 1.6s (10%), c3 @ 2.6s (18.3%), hold until 46% */
+@keyframes pulse-score-hi{
+  0%,1.5%{content:'0%'}
+  2%,9%{content:'32%'}
+  10%,17%{content:'64%'}
+  18%,46%{content:'91%'}
+  50%,100%{content:'0%'}
+}
+/* LO: same timing but stays lower */
+@keyframes pulse-score-lo{
+  0%,1.5%{content:'0%'}
+  2%,9%{content:'30%'}
+  10%,17%{content:'35%'}
+  18%,46%{content:'43%'}
+  50%,100%{content:'0%'}
+}
+
+.pulse-verdict{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:4px;
+}
+.pulse-bar{
+  width:90px;
+  height:6px;
   border-radius:100px;
+  background:rgba(255,255,255,0.08);
+  overflow:hidden;
+  position:relative;
+}
+.pulse-bar-fill{
+  position:absolute;
+  top:0;left:0;
+  bottom:0;
+  border-radius:100px;
+  transform-origin:left;
+  transform:scaleX(0);
+}
+/* Bar fills in steps matching the score */
+.pulse-scene-hi .pulse-bar-fill{
+  background:linear-gradient(90deg,#00ff88,#C6FF00);
+  animation:pulse-bar-hi 12s infinite;
+  animation-delay:.4s;
+}
+.pulse-scene-lo .pulse-bar-fill{
+  background:linear-gradient(90deg,#ff5252,#ff8a8a);
+  animation:pulse-bar-lo 12s infinite;
+  animation-delay:6.4s;
+}
+@keyframes pulse-bar-hi{
+  0%,1.5%{transform:scaleX(0)}
+  2%,9%{transform:scaleX(.32)}
+  10%,17%{transform:scaleX(.64)}
+  18%,46%{transform:scaleX(.91)}
+  50%,100%{transform:scaleX(0)}
+}
+@keyframes pulse-bar-lo{
+  0%,1.5%{transform:scaleX(0)}
+  2%,9%{transform:scaleX(.30)}
+  10%,17%{transform:scaleX(.35)}
+  18%,46%{transform:scaleX(.43)}
+  50%,100%{transform:scaleX(0)}
+}
+.pulse-verdict-chip{
+  font-size:9px;
   letter-spacing:.12em;
   text-transform:uppercase;
+  padding:3px 8px;
+  border-radius:100px;
+  font-weight:600;
   opacity:0;
-  animation:fadeInOut 3s ease infinite;
-  animation-delay:1s;
+  animation:pulse-verdict-in 12s infinite;
 }
-@keyframes fadeInOut{
-  0%,20%{opacity:0;transform:scale(.8)}
-  30%,70%{opacity:1;transform:scale(1)}
-  80%,100%{opacity:0;transform:scale(.8)}
+.pulse-scene-hi .pulse-verdict-chip{
+  color:#00ff88;
+  background:rgba(0,255,136,0.12);
+  border:1px solid rgba(0,255,136,0.4);
+  animation-delay:2.4s;
+}
+.pulse-scene-lo .pulse-verdict-chip{
+  color:#ff5252;
+  background:rgba(255,82,82,0.12);
+  border:1px solid rgba(255,82,82,0.4);
+  animation-delay:8.4s;
+}
+@keyframes pulse-verdict-in{
+  0%,18%{opacity:0;transform:translateY(4px)}
+  22%,46%{opacity:1;transform:translateY(0)}
+  50%,100%{opacity:0;transform:translateY(4px)}
+}
+
+/* Connection line - only appears in HI scene */
+.pulse-scene-hi .pulse-users::after{
+  content:'';
+  position:absolute;
+  top:50%;left:15%;right:15%;
+  height:2px;
+  background:linear-gradient(90deg,#ff0080,#00ff88,#0070f3);
+  border-radius:2px;
+  transform:scaleX(0);
+  transform-origin:left;
+  animation:pulse-connect 12s infinite;
+  animation-delay:2.4s;
+  z-index:0;
+  opacity:.4;
+}
+@keyframes pulse-connect{
+  0%,18%{transform:scaleX(0)}
+  22%,46%{transform:scaleX(1)}
+  50%,100%{transform:scaleX(0)}
 }
 /* ============ THIS2THEM PREVIEW ============ */
 .preview-this2them{
@@ -1222,6 +1433,283 @@ nav{
   font-size:6px;
 }
 
+/* ============ INTELTRACKER PREVIEW ============ */
+.preview-inteltracker{
+  background:#1e1f22;
+  width:100%;height:100%;
+  position:absolute;
+  overflow:hidden;
+  font-family:'JetBrains Mono',monospace;
+  display:flex;
+  flex-direction:column;
+}
+.preview-inteltracker::before{
+  content:'';
+  position:absolute;inset:0;
+  background:radial-gradient(circle at 30% 20%,rgba(88,101,242,0.15),transparent 50%);
+  pointer-events:none;
+}
+
+/* Discord-style channel header */
+.it-head{
+  padding:12px 16px;
+  background:#2b2d31;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;z-index:2;
+}
+.it-channel{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+  color:#fff;
+  font-weight:500;
+  letter-spacing:.02em;
+}
+.it-channel::before{
+  content:'#';
+  color:rgba(255,255,255,0.5);
+  font-size:16px;
+  font-weight:400;
+}
+.it-live-chip{
+  font-size:9px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#fff;
+  background:#f23f42;
+  padding:3px 8px;
+  border-radius:3px;
+  display:flex;
+  align-items:center;
+  gap:5px;
+  font-weight:600;
+}
+.it-live-chip::before{
+  content:'';
+  width:6px;height:6px;
+  border-radius:50%;
+  background:#fff;
+  animation:pulse 1.4s infinite;
+}
+
+/* Message stream */
+.it-stream{
+  flex:1;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  justify-content:flex-end;
+  position:relative;z-index:1;
+  overflow:hidden;
+}
+
+/* Base message row */
+.it-msg{
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:8px 10px;
+  border-radius:6px;
+  opacity:0;
+  animation:it-msg-in 10s infinite;
+}
+.it-msg:hover{background:rgba(255,255,255,0.02)}
+.it-avatar{
+  width:32px;height:32px;
+  border-radius:50%;
+  flex-shrink:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:13px;
+  font-weight:700;
+  color:#fff;
+}
+.it-avatar.bot{
+  background:linear-gradient(135deg,#5865f2,#7c3aed);
+  position:relative;
+}
+.it-avatar.bot::after{
+  content:'BOT';
+  position:absolute;
+  top:-5px;right:-10px;
+  font-size:7px;
+  background:#5865f2;
+  padding:1px 4px;
+  border-radius:3px;
+  letter-spacing:.05em;
+  font-weight:600;
+}
+.it-avatar.user{background:linear-gradient(135deg,#f97316,#ef4444)}
+
+.it-body{
+  flex:1;
+  min-width:0;
+}
+.it-row{
+  display:flex;
+  align-items:baseline;
+  gap:6px;
+  margin-bottom:4px;
+}
+.it-name{
+  font-size:11px;
+  font-weight:600;
+  color:#fff;
+}
+.it-name.bot{color:#c084fc}
+.it-time{
+  font-size:9px;
+  color:rgba(255,255,255,0.4);
+  letter-spacing:.02em;
+}
+
+/* Live match alert embed */
+.it-embed{
+  border-left:3px solid #f23f42;
+  background:#2b2d31;
+  border-radius:4px;
+  padding:10px 12px;
+  font-family:'JetBrains Mono',monospace;
+}
+.it-embed-title{
+  font-size:11px;
+  color:#fff;
+  font-weight:600;
+  margin-bottom:6px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+.it-embed-title::before{
+  content:'🔴';
+  font-size:10px;
+}
+.it-embed-teams{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:10px;
+  color:rgba(255,255,255,0.85);
+  margin-bottom:4px;
+}
+.it-embed-teams strong{
+  color:var(--lime);
+  font-weight:600;
+}
+.it-embed-vs{color:rgba(255,255,255,0.4)}
+.it-embed-meta{
+  font-size:9px;
+  color:rgba(255,255,255,0.5);
+  letter-spacing:.04em;
+}
+.it-ping{
+  color:#5865f2;
+  background:rgba(88,101,242,0.15);
+  padding:1px 4px;
+  border-radius:3px;
+  font-weight:500;
+}
+
+/* Slash command input */
+.it-msg.command .it-body{
+  color:#b5bac1;
+  font-size:11px;
+}
+.it-slash{
+  color:#5865f2;
+  font-weight:500;
+}
+.it-slash-arg{
+  color:#fbbf24;
+}
+
+/* Gemini digest response */
+.it-digest{
+  border-left:3px solid var(--lime);
+  background:#2b2d31;
+  border-radius:4px;
+  padding:10px 12px;
+  position:relative;
+}
+.it-digest-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:6px;
+}
+.it-digest-title{
+  font-size:10px;
+  color:#fff;
+  font-weight:600;
+  letter-spacing:.02em;
+}
+.it-gemini-chip{
+  display:inline-flex;
+  align-items:center;
+  gap:4px;
+  font-size:8px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  padding:2px 6px;
+  border-radius:100px;
+  background:rgba(198,255,0,0.12);
+  border:1px solid rgba(198,255,0,0.3);
+  color:var(--lime);
+  font-weight:500;
+}
+.it-gemini-chip .spark{
+  display:inline-block;
+  width:8px;height:8px;
+  background:conic-gradient(from 0deg,#C6FF00,#00d4ff,#C6FF00);
+  border-radius:2px;
+  transform:rotate(45deg);
+  animation:vc-sparkle 2s linear infinite;
+}
+.it-digest-body{
+  font-size:10px;
+  color:rgba(255,255,255,0.8);
+  line-height:1.55;
+  font-family:'Fraunces',serif;
+  font-variation-settings:"opsz" 14,"wght" 400;
+}
+.it-digest-body .typing{
+  display:inline-block;
+  width:2px;height:10px;
+  background:var(--lime);
+  vertical-align:text-bottom;
+  animation:it-caret 1s steps(2) infinite;
+}
+@keyframes it-caret{50%{opacity:0}}
+.it-digest-stats{
+  display:flex;
+  gap:12px;
+  margin-top:6px;
+  padding-top:6px;
+  border-top:1px solid rgba(255,255,255,0.06);
+  font-size:8px;
+  color:rgba(255,255,255,0.55);
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.it-digest-stats strong{color:var(--lime);font-weight:600}
+
+/* Message timing */
+.it-msg.alert{animation-delay:.5s}
+.it-msg.command{animation-delay:3.5s}
+.it-msg.digest{animation-delay:5s}
+
+@keyframes it-msg-in{
+  0%,3%{opacity:0;transform:translateY(6px)}
+  6%,90%{opacity:1;transform:translateY(0)}
+  95%,100%{opacity:0;transform:translateY(-4px)}
+}
+
 /* ============ DEV LOG ============ */
 .devlog{
   margin-top:20px;
@@ -1451,7 +1939,7 @@ footer{
   <div class="hero-row">
     <div class="hero-left">
       <p class="hero-desc">
-        Hi, I'm <span class="hl">Gotit</span> — a full-stack developer and team leader with experience building <em>AI-powered applications</em>. Computer Science senior at CSULB, graduating May 2026.
+        Hi, I'm <span class="hl">Gotit</span>, a full-stack developer and team leader with experience building <em>AI-powered applications</em>. Computer Science senior at CSULB, graduating May 2026.
       </p>
       <div class="hero-cta">
         <a href="#work" class="btn btn-primary" data-magnetic>
@@ -1535,7 +2023,7 @@ footer{
 
   <div class="projects">
     <!-- HERO / FEATURED PROJECT -->
-    <a href="https://this2them.netlify.app/" target="_blank" class="proj hero-proj reveal" data-tags="react,solo,2026">
+    <a href="https://this2them.netlify.app/" target="_blank" class="proj hero-proj reveal" data-tags="react,ai,solo,2026">
       <div class="proj-preview">
         <div class="preview-this2them">
           <!-- SCENE 1: Successful hop -->
@@ -1587,9 +2075,161 @@ footer{
           </div>
           <div class="devlog">
             <div class="devlog-title">Dev log</div>
+            <div class="devlog-item"><span class="devlog-date">Apr '26</span><span><strong>Gemini-powered hints</strong></div>
             <div class="devlog-item"><span class="devlog-date">Apr '26</span><span>Serverless proxy — TMDB key centralized</span></div>
             <div class="devlog-item"><span class="devlog-date">Apr '26</span><span>MCU / DCU universe filters shipped</span></div>
             <div class="devlog-item"><span class="devlog-date">Mar '26</span><span>Initial launch with real-time validation</span></div>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- VIRTUCYCLE -->
+    <a href="#" class="proj alt reveal" data-tags="ai,python,lead,2026">
+      <div class="proj-preview">
+        <div class="preview-virtucycle">
+          <div class="vc-head">
+            <div class="vc-brand">VirtuCycle</div>
+            <div class="vc-ai-chip">
+              <span class="sparkle"></span>
+              Gemini Vision
+            </div>
+          </div>
+
+          <div class="vc-scanner">
+            <div class="vc-grid"></div>
+            <div class="vc-bracket tl"></div>
+            <div class="vc-bracket tr"></div>
+            <div class="vc-bracket bl"></div>
+            <div class="vc-bracket br"></div>
+            <div class="vc-scanline"></div>
+            <div class="vc-detect"></div>
+            <div class="vc-item">🥤</div>
+          </div>
+
+          <div class="vc-result">
+            <div class="vc-result-top">
+              <div class="vc-item-name">Plastic Bottle</div>
+              <div class="vc-confidence">98.4% match</div>
+            </div>
+            <div class="vc-result-meta">
+              <span>PET · #1</span>
+              <span class="bin">♻ Recyclable</span>
+            </div>
+            <div class="vc-powered">Powered by Gemini Vision + MLKit</div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-preview-content" style="display:none"></div>
+
+      <div class="proj-content">
+        <div class="proj-top">
+          <span class="proj-num">02</span>
+          <span class="proj-badge">Hackathon</span>
+        </div>
+        <div>
+          <h3 class="proj-title">Virtu<em>Cycle</em></h3>
+          <p class="proj-desc">AI recycling app for visually impaired users. Voice-controlled, under 1.5s classification via Gemini Vision + geolocation for local guidelines. <strong>Beach Hacks 9.0</strong>.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Gemini Vision</span>
+              <span class="proj-tag">MLKit</span>
+              <span class="proj-tag">TTS</span>
+              <span class="proj-tag">Geolocation</span>
+            </div>
+            <span class="proj-arrow">↗</span>
+          </div>
+        </div>
+      </div>
+    </a>
+
+    <!-- INTELTRACKER -->
+    <a href="#" class="proj reveal" data-tags="ai,python,solo,2026">
+      <div class="proj-preview">
+        <div class="preview-inteltracker">
+          <div class="it-head">
+            <div class="it-channel">esports-alerts</div>
+            <div class="it-live-chip">Live</div>
+          </div>
+          <div class="it-stream">
+            <!-- ALERT: match goes live, pings role -->
+            <div class="it-msg alert">
+              <div class="it-avatar bot">IT</div>
+              <div class="it-body">
+                <div class="it-row">
+                  <span class="it-name bot">IntelTracker</span>
+                  <span class="it-time">Today at 7:02 PM</span>
+                </div>
+                <div class="it-embed">
+                  <div class="it-embed-title">Match going live — <span class="it-ping">@VCT Fans</span></div>
+                  <div class="it-embed-teams">
+                    <strong>Sentinels</strong>
+                    <span class="it-embed-vs">vs</span>
+                    <strong>NRG</strong>
+                  </div>
+                  <div class="it-embed-meta">VCT Americas · Group Stage · BO3</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- USER: slash command -->
+            <div class="it-msg command">
+              <div class="it-avatar user">G</div>
+              <div class="it-body">
+                <div class="it-row">
+                  <span class="it-name">gotit</span>
+                  <span class="it-time">7:14 PM</span>
+                </div>
+                <div><span class="it-slash">/digest</span> <span class="it-slash-arg">match:SEN-vs-NRG</span></div>
+              </div>
+            </div>
+
+            <!-- BOT: Gemini-powered digest -->
+            <div class="it-msg digest">
+              <div class="it-avatar bot">IT</div>
+              <div class="it-body">
+                <div class="it-row">
+                  <span class="it-name bot">IntelTracker</span>
+                  <span class="it-time">7:14 PM</span>
+                </div>
+                <div class="it-digest">
+                  <div class="it-digest-head">
+                    <div class="it-digest-title">Match Digest · Map 2</div>
+                    <div class="it-gemini-chip">
+                      <span class="spark"></span>
+                      Gemini
+                    </div>
+                  </div>
+                  <div class="it-digest-body">SEN took Haven 13–9 on the back of TenZ's 26/14 performance. NRG closed the gap mid-rounds but couldn't convert their retakes.<span class="typing"></span></div>
+                  <div class="it-digest-stats">
+                    <span>Map · <strong>Haven</strong></span>
+                    <span>MVP · <strong>TenZ</strong></span>
+                    <span>Series · <strong>1–1</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-preview-content" style="display:none"></div>
+
+      <div class="proj-content">
+        <div class="proj-top">
+          <span class="proj-num">03</span>
+          <span class="proj-badge">Solo</span>
+        </div>
+        <div>
+          <h3 class="proj-title">Intel<em>Tracker</em>.gg</h3>
+          <p class="proj-desc">Discord bot delivering live esports match alerts and <em>Gemini-powered</em> digests. Auto-pings configured roles the moment a match goes live, with on-demand summaries via slash commands.</p>
+          <div class="proj-foot">
+            <div class="proj-tags">
+              <span class="proj-tag">Discord.py</span>
+              <span class="proj-tag">Gemini API</span>
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">Slash Commands</span>
+            </div>
+            <span class="proj-arrow">↗</span>
           </div>
         </div>
       </div>
@@ -1599,35 +2239,159 @@ footer{
     <a href="#" class="proj alt reveal" data-tags="react,python,lead,2025">
       <div class="proj-preview">
         <div class="preview-pulse">
-          <div class="pulse-user">
-            <div class="pulse-avatar">A</div>
-            <div class="pulse-name">@ari_m</div>
-            <div class="pulse-genres">
-              <span>Indie · Lo-fi</span>
-              <span>Bedroom pop</span>
+
+          <!-- SCENE 1: HIGH MATCH (>80%) - connected -->
+          <div class="pulse-scene pulse-scene-hi">
+            <div class="pulse-users">
+              <div class="pulse-user u1">
+                <div class="pulse-avatar">A</div>
+                <div class="pulse-name">@ari_m</div>
+                <div class="pulse-stats">
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Top Artist</span>
+                    <span class="pulse-stat-val">Clairo</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Genre</span>
+                    <span class="pulse-stat-val">Bedroom Pop</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Mood</span>
+                    <span class="pulse-stat-val">Chill · Dreamy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pulse-compare">
+                <div class="pulse-compare-spacer-avatar"></div>
+                <div class="pulse-compare-spacer-name"></div>
+                <div class="pulse-compare-rows">
+                  <div class="pulse-check-row ok c1">
+                    <div class="pulse-check">✓</div>
+                    <span class="pulse-check-label">Similar</span>
+                  </div>
+                  <div class="pulse-check-row ok c2">
+                    <div class="pulse-check">✓</div>
+                    <span class="pulse-check-label">Similar</span>
+                  </div>
+                  <div class="pulse-check-row ok c3">
+                    <div class="pulse-check">✓</div>
+                    <span class="pulse-check-label">Similar</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pulse-user u2">
+                <div class="pulse-avatar">J</div>
+                <div class="pulse-name">@jay.wavs</div>
+                <div class="pulse-stats">
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Top Artist</span>
+                    <span class="pulse-stat-val">Beabadoobee</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Genre</span>
+                    <span class="pulse-stat-val">Indie Pop</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Mood</span>
+                    <span class="pulse-stat-val">Mellow · Dreamy</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pulse-result">
+              <div class="pulse-result-left">
+                <div class="pulse-score-label">Vibe Score</div>
+                <div class="pulse-score"></div>
+              </div>
+              <div class="pulse-verdict">
+                <div class="pulse-bar"><div class="pulse-bar-fill"></div></div>
+                <div class="pulse-verdict-chip">● Connected</div>
+              </div>
             </div>
           </div>
-          <div class="pulse-match">
-            <span class="pulse-score-label">Vibe Match</span>
-            <div class="pulse-score">94%</div>
-            <div class="pulse-line"></div>
-            <span class="pulse-match-badge">● Connected</span>
-          </div>
-          <div class="pulse-user">
-            <div class="pulse-avatar">J</div>
-            <div class="pulse-name">@jay.wavs</div>
-            <div class="pulse-genres">
-              <span>Indie · Dream</span>
-              <span>Bedroom pop</span>
+
+          <!-- SCENE 2: LOW MATCH (<80%) - not connected -->
+          <div class="pulse-scene pulse-scene-lo">
+            <div class="pulse-users">
+              <div class="pulse-user u1">
+                <div class="pulse-avatar">M</div>
+                <div class="pulse-name">@mia.b</div>
+                <div class="pulse-stats">
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Top Artist</span>
+                    <span class="pulse-stat-val">Taylor Swift</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Genre</span>
+                    <span class="pulse-stat-val">Pop</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Mood</span>
+                    <span class="pulse-stat-val">Upbeat · Happy</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pulse-compare">
+                <div class="pulse-compare-spacer-avatar"></div>
+                <div class="pulse-compare-spacer-name"></div>
+                <div class="pulse-compare-rows">
+                  <div class="pulse-check-row ok c1">
+                    <div class="pulse-check">✓</div>
+                    <span class="pulse-check-label">Similar</span>
+                  </div>
+                  <div class="pulse-check-row bad c2">
+                    <div class="pulse-check">✕</div>
+                    <span class="pulse-check-label">Not similar</span>
+                  </div>
+                  <div class="pulse-check-row bad c3">
+                    <div class="pulse-check">✕</div>
+                    <span class="pulse-check-label">Not similar</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pulse-user u2">
+                <div class="pulse-avatar">K</div>
+                <div class="pulse-name">@kai.d</div>
+                <div class="pulse-stats">
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Top Artist</span>
+                    <span class="pulse-stat-val">Radiohead</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Genre</span>
+                    <span class="pulse-stat-val">Alt Rock</span>
+                  </div>
+                  <div class="pulse-stat">
+                    <span class="pulse-stat-label">Mood</span>
+                    <span class="pulse-stat-val">Dark · Moody</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="pulse-result">
+              <div class="pulse-result-left">
+                <div class="pulse-score-label">Vibe Score</div>
+                <div class="pulse-score"></div>
+              </div>
+              <div class="pulse-verdict">
+                <div class="pulse-bar"><div class="pulse-bar-fill"></div></div>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
       <div class="proj-preview-content" style="display:none"></div>
 
       <div class="proj-content">
         <div class="proj-top">
-          <span class="proj-num">02</span>
+          <span class="proj-num">04</span>
           <span class="proj-badge">Team Lead</span>
         </div>
         <div>
@@ -1679,7 +2443,7 @@ footer{
 
       <div class="proj-content">
         <div class="proj-top">
-          <span class="proj-num">03</span>
+          <span class="proj-num">05</span>
           <span class="proj-badge">Backend Lead</span>
         </div>
         <div>
@@ -1690,65 +2454,6 @@ footer{
               <span class="proj-tag">AES-GCM</span>
               <span class="proj-tag">Supabase Auth</span>
               <span class="proj-tag">iOS</span>
-            </div>
-            <span class="proj-arrow">↗</span>
-          </div>
-        </div>
-      </div>
-    </a>
-
-    <!-- VIRTUCYCLE -->
-    <a href="#" class="proj alt reveal" data-tags="ai,python,lead,2026">
-      <div class="proj-preview">
-        <div class="preview-virtucycle">
-          <div class="vc-head">
-            <div class="vc-brand">VirtuCycle</div>
-            <div class="vc-ai-chip">
-              <span class="sparkle"></span>
-              Gemini Vision
-            </div>
-          </div>
-
-          <div class="vc-scanner">
-            <div class="vc-grid"></div>
-            <div class="vc-bracket tl"></div>
-            <div class="vc-bracket tr"></div>
-            <div class="vc-bracket bl"></div>
-            <div class="vc-bracket br"></div>
-            <div class="vc-scanline"></div>
-            <div class="vc-detect"></div>
-            <div class="vc-item">🥤</div>
-          </div>
-
-          <div class="vc-result">
-            <div class="vc-result-top">
-              <div class="vc-item-name">Plastic Bottle</div>
-              <div class="vc-confidence">98.4% match</div>
-            </div>
-            <div class="vc-result-meta">
-              <span>PET · #1</span>
-              <span class="bin">♻ Recyclable</span>
-            </div>
-            <div class="vc-powered">Powered by Gemini Vision + MLKit</div>
-          </div>
-        </div>
-      </div>
-      <div class="proj-preview-content" style="display:none"></div>
-
-      <div class="proj-content">
-        <div class="proj-top">
-          <span class="proj-num">04</span>
-          <span class="proj-badge">Hackathon</span>
-        </div>
-        <div>
-          <h3 class="proj-title">Virtu<em>Cycle</em></h3>
-          <p class="proj-desc">AI recycling app for visually impaired users. Voice-controlled, under 1.5s classification via Gemini Vision + geolocation for local guidelines. <strong>Beach Hacks 9.0</strong>.</p>
-          <div class="proj-foot">
-            <div class="proj-tags">
-              <span class="proj-tag">Gemini Vision</span>
-              <span class="proj-tag">MLKit</span>
-              <span class="proj-tag">TTS</span>
-              <span class="proj-tag">Geolocation</span>
             </div>
             <span class="proj-arrow">↗</span>
           </div>
