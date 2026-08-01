@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Photography — Gotit Oopadhayaya</title>
 <meta property="og:title" content="From My Eyes — Photography by Gotit Oopadhayaya"/>
-<meta property="og:description" content="Architecture and urban landscapes captured across Japan and New York City."/>
+<meta property="og:description" content="Architecture and urban landscapes captured across Japan and New York City, plus 35mm film from Yosemite."/>
 <meta property="og:image" content="https://gotitos.github.io/GOT0989.jpeg"/>
 <meta property="og:url" content="https://gotitos.github.io/photoPage.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -341,8 +341,8 @@ footer{
 
 <section class="hero">
   <div class="hero-meta">
-    <span><i class="dot"></i>10 frames · 3 cities</span>
-    <span>2024 — 2025</span>
+    <span><i class="dot"></i>15 frames · 4 locations</span>
+    <span>2024 — 2026</span>
   </div>
   <h1 class="hero-title">
     <span class="word">From</span>
@@ -351,7 +351,7 @@ footer{
 
   <div class="hero-sub">
     <p class="hero-lede">
-      Architecture &amp; urban landscapes captured across <em>Kyoto, Kamakura</em> &amp; <em>New York City</em>. Shot on Sony α6400 &amp; Minolta Freedom Zoom 90c.
+      Architecture &amp; urban landscapes captured across <em>Kyoto, Kamakura</em> &amp; <em>New York City</em> — plus 35mm film frames from <em>Yosemite</em>. Shot on Sony α6400 &amp; Minolta Freedom Zoom 90c.
     </p>
     <div class="hero-info">
       <span><strong>Gear:</strong> Sony α6400</span>
@@ -362,10 +362,12 @@ footer{
 </section>
 
 <div class="loc-bar">
-  <button class="loc-btn active" data-filter="all">All <span class="count">10</span></button>
+  <button class="loc-btn active" data-filter="all">All <span class="count">15</span></button>
   <button class="loc-btn" data-filter="kyoto">Kyoto <span class="count">5</span></button>
   <button class="loc-btn" data-filter="kamakura">Kamakura <span class="count">2</span></button>
   <button class="loc-btn" data-filter="nyc">New York <span class="count">3</span></button>
+  <button class="loc-btn" data-filter="yosemite">Yosemite <span class="count">5</span></button>
+  <button class="loc-btn" data-filter="film">35mm Film <span class="count">5</span></button>
 </div>
 
 <div class="gallery-wrap">
@@ -451,6 +453,46 @@ footer{
       </div>
     </div>
 
+    <div class="photo-item" data-filter="yosemite film" data-src="y1.jpg" data-caption="Yosemite · Merced River Boulders · 35mm Film">
+      <img src="y1.jpg" alt="Boulder-strewn river through the Yosemite forest, shot on 35mm film" loading="lazy"/>
+      <div class="photo-overlay">
+        <span class="photo-loc">Yosemite · 35mm Film</span>
+        <div class="photo-expand">↗</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-filter="yosemite film" data-src="y2.jpg" data-caption="Yosemite · Granite Canyon Wall · 35mm Film">
+      <img src="y2.jpg" alt="Sheer granite canyon wall above the valley, shot on 35mm film" loading="lazy"/>
+      <div class="photo-overlay">
+        <span class="photo-loc">Yosemite · 35mm Film</span>
+        <div class="photo-expand">↗</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-filter="yosemite film" data-src="y3.jpg" data-caption="Yosemite · Forest River · 35mm Film">
+      <img src="y3.jpg" alt="River winding through pines toward granite peaks, shot on 35mm film" loading="lazy"/>
+      <div class="photo-overlay">
+        <span class="photo-loc">Yosemite · 35mm Film</span>
+        <div class="photo-expand">↗</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-filter="yosemite film" data-src="y4.jpg" data-caption="Yosemite · Cascades in the Pines · 35mm Film">
+      <img src="y4.jpg" alt="Whitewater cascading through boulders in the forest, shot on 35mm film" loading="lazy"/>
+      <div class="photo-overlay">
+        <span class="photo-loc">Yosemite · 35mm Film</span>
+        <div class="photo-expand">↗</div>
+      </div>
+    </div>
+
+    <div class="photo-item" data-filter="yosemite film" data-src="y5.jpg" data-caption="Yosemite · River Beach · 35mm Film">
+      <img src="y5.jpg" alt="Swimmers along the Merced River beneath a granite cliff, shot on 35mm film" loading="lazy"/>
+      <div class="photo-overlay">
+        <span class="photo-loc">Yosemite · 35mm Film</span>
+        <div class="photo-expand">↗</div>
+      </div>
+    </div>
+
   </div>
 </div>
 
@@ -506,7 +548,7 @@ document.querySelectorAll('.loc-btn').forEach(btn=>{
     btn.classList.add('active');
     const f=btn.dataset.filter;
     allItems.forEach(item=>{
-      const show=f==='all'||item.dataset.filter===f;
+      const show=f==='all'||item.dataset.filter.split(' ').includes(f);
       if(show){
         item.style.display='';
         setTimeout(()=>item.classList.add('visible'),10);
